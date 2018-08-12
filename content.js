@@ -2,21 +2,38 @@ var listasCarregadas = false; // só preciso carregar na primeira vez
 var listaLike = [];
 var listaDislike = ["Felipe Neto", "Irmãos Neto"];
 
+// informacoes que vou varrer da tela
+var likeBtn = null;
+var dislikeBtn = null;
+var nomeCanal = null;
+
 chrome.runtime.onMessage.addListener(pegaMensagem);
 function pegaMensagem(msg, sender, sendResponse){ // recebe mensagens do background e popup
+
 	console.log(msg);
-	if(msg == "statusComplete"){
+
+	if(msg == "statusComplete"){ // mensagem do background avisando que carregou a nova página
 
 		console.log("veioDoMudou");
 		if(!listasCarregadas){
 			console.log("carrega listas");
-			listasCarregadas = true;
 			carregarListas();
+			listasCarregadas = true;
 		}
-		setTimeout(likeDislike,5000); // espera 1 segundo (ir para a próxima página de fato)
+		setTimeout(getInfo, 1000); // navega pela página pegando as informaçoes possiveis
+		setTimeout(likeDislike,5000); // espera 3 segundo (ir para a próxima página de fato)
 
 	}else if(msg == "nvGosto"){
+
 		salvaNovo();
+
+	}else if(msg == "infoRequest"){
+		if(nomeCanal === null) getInfo(); // caso as informacoes não tenham sido carregadas ainda. tenta carregar
+		var mens = {
+			id: "nome",
+			valor: nomeCanal
+		}
+		chrome.runtime.sendMessage(mens);
 	}
 }
 
@@ -45,7 +62,6 @@ function carregarListas() {
 }
 
 function salvaNovo(){
-	var nomeCanal = getNomeCanal();
 	if(nomeCanal === null){
 		console.log("O nome não foi encontrado!\n");
 		return;
@@ -56,9 +72,6 @@ function salvaNovo(){
 }
 
 function likeDislike(){
-	var likeBtn = getLikeBtn();
-	var dislikeBtn = getDislikeBtn();
-	var nomeCanal = getNomeCanal();
 
 	if(likeBtn === null || dislikeBtn === null || nomeCanal === null){
 		console.log("Algum elemento não foi encontrado na página do vídeo!\n");
@@ -86,6 +99,22 @@ function likeDislike(){
 	}
 }
 
+function getInfo(){
+	
+	nomeCanal = getNomeCanal(0); // tenta pegar o nome do canal usando uma pagina do canal
+	if(nomeCanal != null) return; // se for null, esta em um video ou em outra pagina que não tem o nome do canal
+
+	likeBtn = getLikeBtn();
+	dislikeBtn = getDislikeBtn();
+	nomeCanal = getNomeCanal(1);
+	console.log("Tenta pegar informacoes " + likeBtn + " " + dislikeBtn + " " + nomeCanal);
+	var mens = {
+		id: "fimInfo"
+	}
+	chrome.runtime.sendMessage(mens);
+	if(likeBtn === null || dislikeBtn === null || nomeCanal === null) setTimeout(getInfo, 5000);
+}
+
 function getLikeBtn(){
 	return document.querySelector('#top-level-buttons > ytd-toggle-button-renderer:nth-child(1) > a > #button');
 }
@@ -94,9 +123,17 @@ function getDislikeBtn(){
 	return document.querySelector('#top-level-buttons > ytd-toggle-button-renderer:nth-child(2) > a > #button');
 }
 
-function getNomeCanal(){
-	var elementoNome = document.getElementById('owner-container');
-	if(elementoNome === null) return null;
-	return elementoNome.innerText;
+function getNomeCanal(tipo){
+	var buscaElemento;
+	if(tipo == 0) {
+		buscaElemento = "channel-title";
+		console.log("title");
+	}else{
+		buscaElemento = "owner-container";
+		console.log("owner");
+	}
+	var elementoNome = document.getElementById(buscaElemento);
+	console.log(elementoNome);
+	if(elementoNome !== null) return elementoNome.innerText;
+	return null;
 }
-

@@ -6,9 +6,3 @@ function avisa(tabId, changeInfo, tabInfo){
 		console.log(tabId);
 	}
 }
-
-chrome.browserAction.onClicked.addListener(adicionaGostei);
-function adicionaGostei(tab){
-	console.log(tab);
-	chrome.tabs.sendMessage(tab.id,"nvGosto");
-}
