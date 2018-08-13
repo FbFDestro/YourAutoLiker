@@ -157,3 +157,23 @@ function likeDislike(){
 	}
 }
 
+///// VERIFICA FIM DO CARREGAMENTO
+var progressBar = document.querySelector("yt-page-navigation-progress.style-scope.ytd-app")
+function verificaBarra(){
+
+	if(progressBar.getAttribute("hidden") == null) {
+		console.log("visivel");
+		apareceu = true;
+	}else {
+		console.log("invisivel");
+		if(apareceu){
+			console.log("acabou de carregar");
+			clearInterval(idVerificaBarra);
+		}
+	}
+}
+function carregando(){
+	apareceu = false;
+	idVerificaBarra = setInterval(verificaBarra, 200);
+}
+
