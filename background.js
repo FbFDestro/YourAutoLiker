@@ -6,3 +6,10 @@ function avisa(tabId, changeInfo, tabInfo){
 		console.log(tabId);
 	}
 }
+
+
+chrome.runtime.onInstalled.addListener(function (object) {
+	chrome.tabs.create({url: chrome.extension.getURL('index.html')}, function (tab) {
+		console.log("New tab launched with http://yoursite.com/");
+	});
+});
