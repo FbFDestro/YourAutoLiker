@@ -16,6 +16,13 @@ function inserirMenu(texto,id){
 	return liElement;
 }
 
+function exibeExistenteMenu(elemeto){
+	menu.prepend(elemento);
+}
+function removeMenu(elemento){
+	elemento.parentNode.removeChild(elemento);
+}
+
 window.onload = function(){
 
 	sendMsg("infoRequest");
@@ -29,9 +36,15 @@ window.onload = function(){
 
 	chrome.runtime.onMessage.addListener(recebeMsg);
 	function recebeMsg(msg, sender, sendResponse){
-		if(msg.id == "fimInfo" || msg.id == "nome" || msg.id == "carregou") {
+
+		if(msg.tipo < 0){
+
+			removeMenu(loadExt);
+
+		}else if((msg.id == "nome" || msg.id == "carregou")) {
+
 			console.log(msg);
-			loadExt.parentNode.removeChild(loadExt);
+			removeMenu(loadExt);
 
 			// insere de cima para baixo
 			var btnAddDislike = inserirMenu("Sempre não gostar de: " + msg.valor,"addDislike");
@@ -41,6 +54,11 @@ window.onload = function(){
 				sendMsg("nvGosto");
 				console.log("oi\n");
 			}
+
+			btnAddDislike.onclick = function(){
+				sendMsg("nvDisgosto");
+			}
+
 		}
 	}
 

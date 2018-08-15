@@ -2,6 +2,7 @@
 Adicionar evento a barra de progresso para poder atualizar o tempo atual quando estiver nisso!
 document.querySelector(".ytp-progress-bar").addEventListener("mouseover", function(){ console.log("ola")});
 
+Lista de likes e dislikes tem que ser modificada para um SET (muito mais eficiente para pesquisar se ta la, para remover e etc)
 
 Pega o tempo atual do video!
 document.getElementsByClassName("video-stream html5-main-video")[0].getCurrentTime()

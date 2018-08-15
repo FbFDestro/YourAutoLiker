@@ -1,14 +1,17 @@
 var listasCarregadas = false; // só preciso carregar na primeira vez
-var listaLike = [];
-var listaDislike = ["Felipe Neto", "Irmãos Neto"];
+var likeSet = new Set();
+var dislikeSet = new Set();
 
 // informacoes que vou varrer da tela
-var likeBtn = null;
-var dislikeBtn = null;
-var nomeCanal = null;
-var nomePlaylist = null;
-
-var paginaCarregou = false;
+var likeBtn,dislikeBtn,nomeCanal,nomePlaylist,paginaCarregou,tipoPagina;
+function inicializaVars(){
+	likeBtn = null;
+	dislikeBtn = null;
+	nomeCanal = null;
+	nomePlaylist = null;
+	paginaCarregou = false;
+	tipoPagina = -2; // sem informacoes
+}
 
 chrome.runtime.onMessage.addListener(pegaMensagem);
 function pegaMensagem(msg, sender, sendResponse){ // recebe mensagens do background e popup
@@ -18,18 +21,26 @@ function pegaMensagem(msg, sender, sendResponse){ // recebe mensagens do backgro
 	if(msg == "statusComplete"){ // mensagem do background avisando que carregou a nova página
 
 		console.log("veioDoMudou");
-		esperandoCarragar = true;
+		inicializaVars();
+
 		setTimeout(runOnPage,5000); // espera 5 segundos (para os elementos carregarem)
 
 	}else if(msg == "nvGosto"){
+		adicionar(0);
+		//salvaNovo(0);
 
-		salvaNovo();
+	}else if(msg == "nvDisgosto"){
+
+		adicionar(1);
 
 	}else if(msg == "infoRequest"){
 		// PODE SER QUE AINDA NÃO TENHA A INFORMAÇÃO
 	//	if(nomeCanal === null) getInfo(); // caso as informacoes não tenham sido carregadas ainda. tenta carregar
-		if(paginaCarregou)
-			chrome.runtime.sendMessage({id: "nome",valor: nomeCanal});
+		if(paginaCarregou){
+			chrome.runtime.sendMessage({id: "nome",valor: nomeCanal,tipo: tipoPagina});
+		}else {
+			chrome.runtime.sendMessage({id: "carregando"});
+		}
 	}
 }
 
@@ -76,10 +87,10 @@ function verifyTypeOfPage(){
 
 function runOnPage(){
 
-	var tipoPagina = verifyTypeOfPage(); 
+	tipoPagina = verifyTypeOfPage(); 
 	paginaCarregou = true;
 
-	chrome.runtime.sendMessage({id: "carregou",valor: nomeCanal});
+	chrome.runtime.sendMessage({id: "carregou",valor: nomeCanal,tipo: tipoPagina}); // avisa para o popup que terminou
 
 	if(tipoPagina >= 0 && !listasCarregadas) { // se for video/playlist ou canal tem que carregar as listas
 		console.log("carrega listas");
@@ -95,38 +106,49 @@ function runOnPage(){
 }
 
 
-function salvarLista() {
-	chrome.storage.sync.set({"listaLike": listaLike}, function() {
-		console.log('Lista de like salva como: ' + listaLike);
-		if (chrome.runtime.error) {
-			console.log("Runtime error.");
-		}
-		likeDislike();
-	});
+function salvarLista(tipo) {
+
+	if(tipo == 0){
+		var likeArr = Array.from(likeSet);
+		chrome.storage.sync.set({"likeArr": likeArr}, function() {
+			console.log('Lista de like salva como: ' + likeArr);
+			likeDislike(); // tem que estar dentro para evitar problemas de sincronização
+		});
+	}else if(tipo == 1){
+
+		var dislikeArr = Array.from(dislikeSet);
+		chrome.storage.sync.set({"dislikeArr": dislikeArr}, function() {
+			console.log('Lista de dislike salva como: ' + dislikeArr);
+			likeDislike();
+		});
+
+	}
 }
 
 function carregarListas() {
-	chrome.storage.sync.get(['listaLike'], function(result) {
-		console.log('Lista de like carregada: ' + result.listaLike);
-		if(result.listaLike !== undefined) {
-			if(result.listaLike.length == 0){ // se tiver vazio coloco as listas iniciais que eu quero
-				listaLike = ["Desempedidos","Fabio F. Destro"];
-				salvarLista();
-			}else{
-				listaLike = result.listaLike;		
-			}
-		}
+
+	chrome.storage.sync.get(null, function(result) {
+		if(result.likeSet !== undefined) likeSet = new Set(result.likeArr);
+		if(result.dislikeSet !== undefined) dislikeSet = new Set(result.dislikeArr);
+		console.log(result.likeArr);
+		console.log(result.dislikeArr);
 	});
+
 }
 
-function salvaNovo(){
-	if(nomeCanal === null){
-		console.log("O nome não foi encontrado!\n");
-		return;
+function adicionar(tipo){
+	if(nomeCanal !== null){
+		if(tipo == 0){  // CERTO PARA DEPOIS MUDAR
+			likeSet.add(nomeCanal);
+			console.log("Salvando novo canal para a lista de Likes: " + nomeCanal);
+		}else if (tipo == 1){
+			dislikeSet.add(nomeCanal);
+			console.log("Salvando novo canal para a lista de Dislikes: " + nomeCanal);
+		}else { // playlist
+
+		}
+		salvarLista(tipo);
 	}
-	console.log("Salvando novo canal para a lista de Likes: " + nomeCanal);
-	listaLike.push(nomeCanal.substr(0,nomeCanal.length-1));
-	salvarLista();
 }
 
 function likeDislike(){
@@ -140,21 +162,25 @@ function likeDislike(){
 	}
 	console.log("Nome do canal: " + nomeCanal);
 
-	for(var i=0;i<listaLike.length;i++){
-		if((listaLike[i]+"\n") == nomeCanal){
-			likeBtn.click();
-			console.log("Você deu um like nesse vídeo\n");
-			return;
-		}
+	
+
+	if(likeSet.has(nomeCanal)){
+		likeBtn.click();
+		return;
 	}
 
-	for(var i=0;i<listaDislike.length;i++){
-		if((listaDislike[i]+"\n") == nomeCanal){
-			dislikeBtn.click();
-			console.log("Voce deu um dislike nesse vídeos\n");
-			return;
+	if(dislikeSet.has(nomeCanal)){
+		dislikeBtn.click();
+		if(nomeCanal == "Felipe Neto\n"){ // so para ter um jeito de limpar as listas por enquanto! :)
+			likeSet.clear();
+			dislikeSet.clear();
+			salvarLista(0);
+			salvarLista(1);
+			console.log("Esse canal fez tudo ser apagado!");
 		}
+		return;
 	}
+
 }
 
 ///// VERIFICA FIM DO CARREGAMENTO
@@ -176,4 +202,3 @@ function carregando(){
 	apareceu = false;
 	idVerificaBarra = setInterval(verificaBarra, 200);
 }
-
