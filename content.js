@@ -28,16 +28,24 @@ function pegaMensagem(msg, sender, sendResponse){ // recebe mensagens do backgro
 	}else if(msg == "nvGosto"){
 		adicionar(0);
 		//salvaNovo(0);
-
 	}else if(msg == "nvDisgosto"){
 
 		adicionar(1);
 
+	}else if(msg == "rmGosto"){
+		remover(0);	
+	}else if(msg == "rmDisgosto"){
+		remover(1);
 	}else if(msg == "infoRequest"){
 		// PODE SER QUE AINDA NÃO TENHA A INFORMAÇÃO
 	//	if(nomeCanal === null) getInfo(); // caso as informacoes não tenham sido carregadas ainda. tenta carregar
 		if(paginaCarregou){
-			chrome.runtime.sendMessage({id: "nome",valor: nomeCanal,tipo: tipoPagina});
+			
+			var jaGostaDesgosta = -1;
+			if(likeSet.has(nomeCanal)) jaGostaDesgosta = 0;
+			else if(dislikeSet.has(nomeCanal)) jaGostaDesgosta = 1;
+			
+			chrome.runtime.sendMessage({id: "nome",valor: nomeCanal,gostaDesgosta: jaGostaDesgosta,tipo: tipoPagina});
 		}else {
 			chrome.runtime.sendMessage({id: "carregando"});
 		}
@@ -99,7 +107,7 @@ function runOnPage(){
 	}
 	
 	if(tipoPagina > 0) { // se for video tenta dar like
-		setTimeout(likeDislike,5000); // espera 5 segundo (ir para a próxima página de fato)
+		likeDislike();
 	}
 
 	//setTimeout(getInfo, 2000); // navega pela página pegando as informaçoes possiveis
@@ -151,6 +159,21 @@ function adicionar(tipo){
 	}
 }
 
+function remover(tipo){
+	if(nomeCanal !== null){
+		if(tipo == 0){  // CERTO PARA DEPOIS MUDAR
+			likeSet.remove(nomeCanal);
+			console.log("Removendo o canal da lista de Likes: " + nomeCanal);
+		}else if (tipo == 1){
+			dislikeSet.remove(nomeCanal);
+			console.log("Removendo o canal da lista de Dislikes: " + nomeCanal);
+		}else { // playlist
+
+		}
+		salvarLista(tipo);
+	}
+}
+
 function likeDislike(){
 
 	if(likeBtn === null || dislikeBtn === null || nomeCanal === null){
@@ -161,8 +184,6 @@ function likeDislike(){
 		return;
 	}
 	console.log("Nome do canal: " + nomeCanal);
-
-	
 
 	if(likeSet.has(nomeCanal)){
 		likeBtn.click();
