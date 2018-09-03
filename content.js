@@ -37,18 +37,29 @@ function pegaMensagem(msg, sender, sendResponse){ // recebe mensagens do backgro
 	}else if(msg == "rmDisgosto"){
 		remover(1);
 	}else if(msg == "infoRequest"){
-		// PODE SER QUE AINDA NÃO TENHA A INFORMAÇÃO
-	//	if(nomeCanal === null) getInfo(); // caso as informacoes não tenham sido carregadas ainda. tenta carregar
 		if(paginaCarregou){
-			
 			var jaGostaDesgosta = -1;
 			if(likeSet.has(nomeCanal)) jaGostaDesgosta = 0;
 			else if(dislikeSet.has(nomeCanal)) jaGostaDesgosta = 1;
-			
+			console.log(jaGostaDesgosta);
+
 			chrome.runtime.sendMessage({id: "nome",valor: nomeCanal,gostaDesgosta: jaGostaDesgosta,tipo: tipoPagina});
 		}else {
 			chrome.runtime.sendMessage({id: "carregando"});
 		}
+	}
+}
+
+function sendInfoPopup(){
+	if(paginaCarregou){
+		var jaGostaDesgosta = -1;
+		if(likeSet.has(nomeCanal)) jaGostaDesgosta = 0;
+		else if(dislikeSet.has(nomeCanal)) jaGostaDesgosta = 1;
+		console.log(jaGostaDesgosta);
+
+		chrome.runtime.sendMessage({id: "nome",valor: nomeCanal,gostaDesgosta: jaGostaDesgosta,tipo: tipoPagina});
+	}else {
+		chrome.runtime.sendMessage({id: "carregando"});
 	}
 }
 
@@ -97,9 +108,7 @@ function runOnPage(){
 
 	tipoPagina = verifyTypeOfPage(); 
 	paginaCarregou = true;
-
-	chrome.runtime.sendMessage({id: "carregou",valor: nomeCanal,tipo: tipoPagina}); // avisa para o popup que terminou
-
+	
 	if(tipoPagina >= 0 && !listasCarregadas) { // se for video/playlist ou canal tem que carregar as listas
 		console.log("carrega listas");
 		carregarListas();
@@ -107,7 +116,8 @@ function runOnPage(){
 	}
 	
 	if(tipoPagina > 0) { // se for video tenta dar like
-		likeDislike();
+		setTimeout(likeDislike,5000); // espera 5 segundo (ir para a próxima página de fato)
+		//likeDislike();
 	}
 
 	//setTimeout(getInfo, 2000); // navega pela página pegando as informaçoes possiveis
@@ -136,10 +146,11 @@ function salvarLista(tipo) {
 function carregarListas() {
 
 	chrome.storage.sync.get(null, function(result) {
-		if(result.likeSet !== undefined) likeSet = new Set(result.likeArr);
-		if(result.dislikeSet !== undefined) dislikeSet = new Set(result.dislikeArr);
-		console.log(result.likeArr);
-		console.log(result.dislikeArr);
+		if(result.likeArr !== undefined) likeSet = new Set(result.likeArr);
+		if(result.dislikeArr !== undefined) dislikeSet = new Set(result.dislikeArr);
+		console.log("Lista de likes: " + result.likeArr);
+		console.log("Lista de dislikes: " + result.dislikeArr);
+		sendInfoPopup();
 	});
 
 }
@@ -162,10 +173,10 @@ function adicionar(tipo){
 function remover(tipo){
 	if(nomeCanal !== null){
 		if(tipo == 0){  // CERTO PARA DEPOIS MUDAR
-			likeSet.remove(nomeCanal);
+			likeSet.delete(nomeCanal);
 			console.log("Removendo o canal da lista de Likes: " + nomeCanal);
 		}else if (tipo == 1){
-			dislikeSet.remove(nomeCanal);
+			dislikeSet.delete(nomeCanal);
 			console.log("Removendo o canal da lista de Dislikes: " + nomeCanal);
 		}else { // playlist
 

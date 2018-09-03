@@ -23,17 +23,39 @@ function removeMenu(elemento){
 	elemento.parentNode.removeChild(elemento);
 }
 
-function botoesNovoLikeDislike(){
+function botoesNovoLikeDislike(nome){
 	// insere de cima para baixo
-	var btnAddDislike = inserirMenu("Sempre não gostar de: " + msg.valor,"addDislike");
-	var btnAddLike = inserirMenu("Sempre gostar de: " + msg.valor,"addLike");
+	var btnAddDislike = inserirMenu("Sempre não gostar de: " + nome,"addDislike");
+	var btnAddLike = inserirMenu("Sempre gostar de: " + nome,"addLike");
 
 	btnAddLike.onclick = function() {
 		sendMsg("nvGosto");
-		console.log("oi\n");
+		removeMenu(btnAddDislike);
+		removeMenu(btnAddLike);
+		botaoPararLike(nome);
 	}
 	btnAddDislike.onclick = function(){
 		sendMsg("nvDisgosto");
+		removeMenu(btnAddDislike);
+		removeMenu(btnAddLike);
+		botaoPararDislike(nome);
+	}
+}
+
+function botaoPararLike(nome){
+	var btnRemoveLike =  inserirMenu("Parar de gostar de: " + nome,"removeLike");
+	btnRemoveLike.onclick = function() {
+		sendMsg("rmGosto");
+		removeMenu(btnRemoveLike);
+		botoesNovoLikeDislike(nome);
+	}
+}
+function botaoPararDislike(nome){
+	var btnRemoveDislike =  inserirMenu("Parar de não gostar de: " + nome,"removeDislike");
+	btnRemoveDislike.onclick = function() {
+		sendMsg("rmDisgosto");
+		removeMenu(btnRemoveDislike);
+		botoesNovoLikeDislike(nome);
 	}
 }
 
@@ -59,22 +81,11 @@ window.onload = function(){
 			removeMenu(loadExt);
 
 			if(msg.gostaDesgosta == 0){ // ja gosta
-				var btnRemoveLike =  inserirMenu("Parar de gostar de: " + msg.valor,"removeLike");
-				btnRemoveLike.onclick = function() {
-					sendMsg("rmGosto");
-
-					removeMenu(btnRemoveLike);
-					botoesNovoLikeDislike();
-				}
+				botaoPararLike(msg.valor);
 			}else if(msg.gostaDesgosta == 1) { // ja desgosta
-				var btnRemoveDislike =  inserirMenu("Parar de não gostar de: " + msg.valor,"removeDislike");
-				btnRemoveDislike.onclick = function() {
-					sendMsg("rmDisgosto");
-					removeMenu(btnRemoveDislike);
-					botoesNovoLikeDislike();
-				}
+				botaoPararDislike(msg.valor);
 			}else { // ainda não sempre gosta nem desgosta do canal
-				botoesNovoLikeDislike();
+				botoesNovoLikeDislike(msg.valor);
 			}
 		}
 	}
@@ -82,3 +93,4 @@ window.onload = function(){
 
 
 }
+
