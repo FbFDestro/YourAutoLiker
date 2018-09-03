@@ -23,6 +23,20 @@ function removeMenu(elemento){
 	elemento.parentNode.removeChild(elemento);
 }
 
+function botoesNovoLikeDislike(){
+	// insere de cima para baixo
+	var btnAddDislike = inserirMenu("Sempre não gostar de: " + msg.valor,"addDislike");
+	var btnAddLike = inserirMenu("Sempre gostar de: " + msg.valor,"addLike");
+
+	btnAddLike.onclick = function() {
+		sendMsg("nvGosto");
+		console.log("oi\n");
+	}
+	btnAddDislike.onclick = function(){
+		sendMsg("nvDisgosto");
+	}
+}
+
 window.onload = function(){
 
 	sendMsg("infoRequest");
@@ -37,28 +51,31 @@ window.onload = function(){
 	chrome.runtime.onMessage.addListener(recebeMsg);
 	function recebeMsg(msg, sender, sendResponse){
 
-		if(msg.tipo < 0){
-
+		if(msg.tipo < 0){ // so deve aparecer o botão de configurar a extensão
 			removeMenu(loadExt);
-
-		}else if((msg.id == "nome" || msg.id == "carregou")) {
+		}else if((msg.id == "nome" || msg.id == "carregou")) { // deve avaliar o canal e possibilitar sempre gostar e desgostar ou desinscrever
 
 			console.log(msg);
 			removeMenu(loadExt);
 
-			// insere de cima para baixo
-			var btnAddDislike = inserirMenu("Sempre não gostar de: " + msg.valor,"addDislike");
-			var btnAddLike = inserirMenu("Sempre gostar de: " + msg.valor,"addLike");
+			if(msg.gostaDesgosta == 0){ // ja gosta
+				var btnRemoveLike =  inserirMenu("Parar de gostar de: " + msg.valor,"removeLike");
+				btnRemoveLike.onclick = function() {
+					sendMsg("rmGosto");
 
-			btnAddLike.onclick = function() {
-				sendMsg("nvGosto");
-				console.log("oi\n");
+					removeMenu(btnRemoveLike);
+					botoesNovoLikeDislike();
+				}
+			}else if(msg.gostaDesgosta == 1) { // ja desgosta
+				var btnRemoveDislike =  inserirMenu("Parar de não gostar de: " + msg.valor,"removeDislike");
+				btnRemoveDislike.onclick = function() {
+					sendMsg("rmDisgosto");
+					removeMenu(btnRemoveDislike);
+					botoesNovoLikeDislike();
+				}
+			}else { // ainda não sempre gosta nem desgosta do canal
+				botoesNovoLikeDislike();
 			}
-
-			btnAddDislike.onclick = function(){
-				sendMsg("nvDisgosto");
-			}
-
 		}
 	}
 
