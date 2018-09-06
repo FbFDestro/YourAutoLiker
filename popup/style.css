@@ -3,6 +3,17 @@
 	padding: 0;
 }
 
+@font-face {
+    font-family: nexaL;
+    src: url(/fontes/nexaL.otf);
+}
+
+
+@font-face {
+    font-family: nexaB;
+    src: url(/fontes/nexaB.otf);
+}
+
 body{
 	background-color: #fff;
 }
@@ -16,6 +27,7 @@ body{
 }
 
 #cabecalho{
+	font-family: nexaB;
 	background-color: #fff;
 	border-bottom: 1px solid #ccc;
 	padding: 10px 0 15px 15px;
@@ -46,15 +58,29 @@ body{
 
 .btn{
 	margin-bottom: 20px;
-	margin-right: 10px;
+	margin-right: 38px;
 }
 
 .btn a{
 	background-color: #fff;
 	border: 1px solid #ccc;
-	padding: 5px;
+	padding: 10px 18px;
 	width: 100%;
 	display: block;
+	text-decoration: none;
+    color: #000;
+    font-family: nexaB;
+    font-size: 14px;
+}
+
+.icone{
+	float: left;
+}
+.icone img{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 8px;
+	width: 22px;
 }
 
 ul {
