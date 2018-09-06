@@ -23,3 +23,27 @@ li a:hover {
 	background-color: #555;
 	color: white;
 }
+
+#t{
+	width: 300px;
+	max-height: 100px;
+	background-color: #ccc;
+	overflow-y: scroll;
+}
+.btn{
+	padding: 10px;
+}
+
+#t::-webkit-scrollbar {
+	width: 12px;
+}
+
+#t::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+	border-radius: 10px;
+}
+
+#t::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
