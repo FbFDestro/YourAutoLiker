@@ -3,6 +3,59 @@
 	padding: 0;
 }
 
+body{
+	background-color: #fff;
+}
+
+#popup{
+	border: 1px solid #eee;
+	margin: 115px 10px;
+	width: 330px;
+	height: 250px;
+	background-color: #eee;
+}
+
+#cabecalho{
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0 15px 15px;
+}
+
+#cabecalho img{
+	float: left;
+	width: 48px;
+}
+
+#nome{    
+	margin-top: 6px;
+    margin-bottom: -8px;
+    margin-left: 65px;
+    font-size: 18px;
+}
+
+#inscrever {
+    float: right;
+    margin-top: -12px;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+#botoes{
+	margin:30px 15px;
+}
+
+.btn{
+	margin-bottom: 20px;
+	margin-right: 10px;
+}
+
+.btn a{
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 5px;
+	width: 100%;
+	display: block;
+}
 
 ul {
 	list-style-type: none;
@@ -22,28 +75,4 @@ li a {
 li a:hover {
 	background-color: #555;
 	color: white;
-}
-
-#t{
-	width: 300px;
-	max-height: 100px;
-	background-color: #ccc;
-	overflow-y: scroll;
-}
-.btn{
-	padding: 10px;
-}
-
-#t::-webkit-scrollbar {
-	width: 12px;
-}
-
-#t::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-	border-radius: 10px;
-}
-
-#t::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
