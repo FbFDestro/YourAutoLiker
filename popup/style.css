@@ -28,12 +28,22 @@ a:hover{
 	transition: 0.8s;
 }
 
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 0 auto;
+	margin-bottom: 14px;
+	padding: 0; 
+	width: 220px;
+}
 
 #popup{
-	border: 1px solid #eee;
+	border: 1px solid #ccc;
 	margin: 115px 10px;
 	width: 330px;
-	height: 250px;
+	height: 235px;
 	background-color: #eee;
 }
 
@@ -74,7 +84,7 @@ a:hover{
 }
 
 .btn{
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	margin-right: 38px;
 }
 
