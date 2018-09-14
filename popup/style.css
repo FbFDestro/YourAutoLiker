@@ -43,7 +43,7 @@ hr{
 	border: 1px solid #ccc;
 	margin: 115px 10px;
 	width: 330px;
-	height: 235px;
+	/*height: 235px;  tira o atributo altura para que fique redimensionando sozinho!? */
 	background-color: #eee;
 }
 
@@ -80,7 +80,7 @@ hr{
 }
 
 #botoes{
-	margin:30px 15px;
+	margin:30px 15px 0px 15px
 }
 
 .btn{
