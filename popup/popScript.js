@@ -1,9 +1,8 @@
 function sendMsg(msg){
-	/*	chrome.tabs.query({active: true, currentWindow: true},pegouTab);
+		chrome.tabs.query({active: true, currentWindow: true},pegouTab);
 		function pegouTab(tabs){
 		chrome.tabs.sendMessage(tabs[0].id, msg);
 		}
-	 */
 }
 
 function inserirMenu(id,nomeImg,texto){
@@ -14,7 +13,7 @@ function inserirMenu(id,nomeImg,texto){
 
 	divBtn.innerHTML = "<div class='icone'><img src='../imgs/"+nomeImg+".png' /></div><a href='#'>"+texto+"</a></div>"
 
-		console.log(botoes);
+	console.log(botoes);
 	botoes.prepend(divBtn); // não funciona em versões antigas
 	return divBtn;
 }
@@ -67,6 +66,7 @@ window.onload = function(){
 	sendMsg("infoRequest");
 
 	botoes = document.getElementById("botoes");
+	loadIcon = document.querySelector(".icone.load");
 	console.log(botoes);
 
 	chrome.runtime.onMessage.addListener(recebeMsg);
@@ -74,10 +74,12 @@ window.onload = function(){
 
 		if(msg.tipo < 0){ // so deve aparecer o botão de configurar a extensão
 
+			loadIcon.style.display = "none"; // escondendo o loading
 			// hide loading button
 
 		}else if((msg.id == "nome" || msg.id == "carregou")) { // deve avaliar o canal e possibilitar sempre gostar e desgostar ou desinscrever
 
+			loadIcon.style.display = "none"; // escondendo o loading
 			botoes.prepend(document.createElement("hr")); // exibe linha dividindo a opção de carregar
 
 			console.log(msg);

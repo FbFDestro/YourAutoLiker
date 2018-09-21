@@ -105,6 +105,11 @@ hr{
 .icone{
 	float: left;
 }
+.icone.load {
+    float: right;
+    margin-top: -38px;
+    margin-right: -38px;
+}
 .icone img{
 	margin-left: 10px;
 	margin-right: 10px;
