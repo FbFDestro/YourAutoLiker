@@ -67,6 +67,9 @@ window.onload = function(){
 
 	botoes = document.getElementById("botoes");
 	loadIcon = document.querySelector(".icone.load");
+
+	titulo = document.getElementById("nome");
+
 	console.log(botoes);
 
 	chrome.runtime.onMessage.addListener(recebeMsg);
@@ -81,6 +84,8 @@ window.onload = function(){
 
 			loadIcon.style.display = "none"; // escondendo o loading
 			botoes.prepend(document.createElement("hr")); // exibe linha dividindo a opção de carregar
+			titulo.innerText = msg.valor;
+
 
 			console.log(msg);
 			// hide loading button
