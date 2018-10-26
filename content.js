@@ -13,6 +13,7 @@ function inicializaVars(){
 	tipoPagina = -2; // sem informacoes
 }
 
+
 chrome.runtime.onMessage.addListener(pegaMensagem);
 function pegaMensagem(msg, sender, sendResponse){ // recebe mensagens do background e popup
 
