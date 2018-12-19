@@ -1,19 +1,21 @@
 function sendMsg(msg){
-	chrome.tabs.query({active: true, currentWindow: true},pegouTab);
-	function pegouTab(tabs){
+		chrome.tabs.query({active: true, currentWindow: true},pegouTab);
+		function pegouTab(tabs){
 		chrome.tabs.sendMessage(tabs[0].id, msg);
-	}
+		}
 }
 
-function inserirMenu(texto,id){
-	var liElement = document.createElement("li");
-	var aElement = document.createElement("a");
-	aElement.href = "#";
-	aElement.innerText = texto;
-	aElement.setAttribute("id", id);
-	liElement.appendChild(aElement);
-	menu.prepend(liElement);
-	return liElement;
+function inserirMenu(id,nomeImg,texto){
+
+	var divBtn = document.createElement("div");
+	divBtn.setAttribute("id",id);
+	divBtn.setAttribute("class","btn");
+
+	divBtn.innerHTML = "<div class='icone'><img src='../imgs/"+nomeImg+".png' /></div><a href='#'>"+texto+"</a></div>"
+
+	console.log(botoes);
+	botoes.prepend(divBtn); // não funciona em versões antigas
+	return divBtn;
 }
 
 function exibeExistenteMenu(elemeto){
@@ -23,10 +25,10 @@ function removeMenu(elemento){
 	elemento.parentNode.removeChild(elemento);
 }
 
-function botoesNovoLikeDislike(nome){
+function botoesNovoLikeDislike(){
 	// insere de cima para baixo
-	var btnAddDislike = inserirMenu("Sempre não gostar de: " + nome,"addDislike");
-	var btnAddLike = inserirMenu("Sempre gostar de: " + nome,"addLike");
+	var btnAddDislike = inserirMenu("btnDislike","dislike","Sempre dar dislike nesse canal");
+	var btnAddLike = inserirMenu("btnLike","like","Sempre dar like nesse canal");
 
 	btnAddLike.onclick = function() {
 		sendMsg("nvGosto");
@@ -42,20 +44,20 @@ function botoesNovoLikeDislike(nome){
 	}
 }
 
-function botaoPararLike(nome){
-	var btnRemoveLike =  inserirMenu("Parar de gostar de: " + nome,"removeLike");
+function botaoPararLike(){
+	var btnRemoveLike = inserirMenu("btnRemoveLike","like","Parar de dar like nesse canal"); // posso mudar o "like" para "pararLike" se eu mudar a imagem
 	btnRemoveLike.onclick = function() {
 		sendMsg("rmGosto");
 		removeMenu(btnRemoveLike);
-		botoesNovoLikeDislike(nome);
+		botoesNovoLikeDislike();
 	}
 }
-function botaoPararDislike(nome){
-	var btnRemoveDislike =  inserirMenu("Parar de não gostar de: " + nome,"removeDislike");
+function botaoPararDislike(){
+	var btnRemoveDislike = inserirMenu("btnRemoveDislike","dislike","Parar de dar dislike nesse canal");
 	btnRemoveDislike.onclick = function() {
 		sendMsg("rmDisgosto");
 		removeMenu(btnRemoveDislike);
-		botoesNovoLikeDislike(nome);
+		botoesNovoLikeDislike();
 	}
 }
 
@@ -63,29 +65,43 @@ window.onload = function(){
 
 	sendMsg("infoRequest");
 
-	menu = document.getElementById("opcoes");
-	var confExt = inserirMenu("Configurar extensão","confExt");
-	var loadExt = inserirMenu("Carregando informações","loadExt");
+	botoes = document.getElementById("botoes");
+	loadIcon = document.querySelector(".icone.load");
 
-//	var btnAddLike = document.getElementById("addLike");
-//	var btnAddDislike = document.getElementById("addDislike");
+	titulo = document.getElementById("nome");
+
+	console.log(botoes);
 
 	chrome.runtime.onMessage.addListener(recebeMsg);
 	function recebeMsg(msg, sender, sendResponse){
 
 		if(msg.tipo < 0){ // so deve aparecer o botão de configurar a extensão
-			removeMenu(loadExt);
+
+			loadIcon.style.display = "none"; // escondendo o loading
+			// hide loading button
+
 		}else if((msg.id == "nome" || msg.id == "carregou")) { // deve avaliar o canal e possibilitar sempre gostar e desgostar ou desinscrever
 
+			loadIcon.style.display = "none"; // escondendo o loading
+			botoes.prepend(document.createElement("hr")); // exibe linha dividindo a opção de carregar
+			titulo.innerText = msg.valor;
+
+
 			console.log(msg);
-			removeMenu(loadExt);
+			// hide loading button
 
 			if(msg.gostaDesgosta == 0){ // ja gosta
+
 				botaoPararLike(msg.valor);
+
 			}else if(msg.gostaDesgosta == 1) { // ja desgosta
+
 				botaoPararDislike(msg.valor);
+
 			}else { // ainda não sempre gosta nem desgosta do canal
+
 				botoesNovoLikeDislike(msg.valor);
+
 			}
 		}
 	}

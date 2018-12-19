@@ -3,6 +3,119 @@
 	padding: 0;
 }
 
+@font-face {
+    font-family: nexaL;
+    src: url(../fontes/nexaL.otf);
+}
+
+
+@font-face {
+    font-family: nexaB;
+    src: url(../fontes/nexaB.otf);
+}
+
+body{
+	background-color: #fff;
+}
+
+a{
+	text-decoration: none;
+	color: #515151;
+	transition: 0.8s;
+}
+
+a:hover{
+	transition: 0.8s;
+}
+
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 0 auto;
+	margin-bottom: 14px;
+	padding: 0; 
+	width: 220px;
+}
+
+#popup{
+	border: 1px solid #ccc;
+	margin: 115px 10px;
+	width: 330px;
+	/*height: 235px;  tira o atributo altura para que fique redimensionando sozinho!? */
+	background-color: #eee;
+}
+
+#cabecalho{
+	font-family: nexaB;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0 15px 15px;
+}
+
+#cabecalho img{
+	float: left;
+	width: 48px;
+}
+
+#nome{    
+	margin-top: 6px;
+    margin-bottom: -8px;
+    margin-left: 65px;
+    font-size: 18px;
+}
+
+#inscrever {
+    float: right;
+    margin-top: -8px;
+    margin-right: 15px;
+    font-size: 14px;
+}
+#inscrever a{	
+	color: #f00;
+}
+#inscrever a:hover{	
+	color: #000;
+}
+
+#botoes{
+	margin:30px 15px 0px 15px
+}
+
+.btn{
+	margin-bottom: 15px;
+	margin-right: 38px;
+}
+
+.btn a{
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px 18px;
+	width: 100%;
+	display: block;
+    color: #000;
+    font-family: nexaB;
+    font-size: 14px;
+}
+.btn a:hover{
+	border-color: #000;
+}
+
+.icone{
+	float: left;
+}
+.icone.load {
+    float: right;
+    margin-top: -38px;
+    margin-right: -38px;
+}
+.icone img{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 8px;
+	width: 22px;
+}
 
 ul {
 	list-style-type: none;
@@ -16,34 +129,9 @@ li a {
 	display: block;
 	color: #000;
 	padding: 12px 20px;
-	text-decoration: none;
 }
 
 li a:hover {
 	background-color: #555;
 	color: white;
-}
-
-#t{
-	width: 300px;
-	max-height: 100px;
-	background-color: #ccc;
-	overflow-y: scroll;
-}
-.btn{
-	padding: 10px;
-}
-
-#t::-webkit-scrollbar {
-	width: 12px;
-}
-
-#t::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-	border-radius: 10px;
-}
-
-#t::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
