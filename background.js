@@ -1,16 +1,17 @@
-chrome.tabs.onUpdated.addListener(avisa);
-function avisa(tabId, changeInfo, tabInfo){
+chrome.tabs.onUpdated.addListener(sendMessage);
+
+function sendMessage(tabId, changeInfo, tabInfo){
 	console.log(changeInfo);
-	if(changeInfo.status == "complete"){
-		chrome.tabs.sendMessage(tabId, "statusComplete");
+	if(changeInfo.status == "complete"){ // se a aba acabou de ser atualizada
+		chrome.tabs.sendMessage(tabId, "pageUpdated");
 		console.log(tabId);
 	}
 }
 
-/*
+//ESTA COMENTADO PORQUE ESSA FUNCIONALIDADE SÓ SERA ATIVADA DEPOIS
 chrome.runtime.onInstalled.addListener(function (object) {
-	chrome.tabs.create({url: chrome.extension.getURL('index.html')}, function (tab) {
+	chrome.storage.sync.set({'whenReactInPercent':0.15});
+/* 	chrome.tabs.create({url: chrome.extension.getURL('index.html')}, function (tab) {
 		console.log("New tab launched with http://yoursite.com/");
-	});
+	}); */
 });
-*/
