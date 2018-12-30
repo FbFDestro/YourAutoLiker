@@ -34,52 +34,66 @@ hr{
 	border: 0;
 	border-top: 1px solid #ccc;
 	margin: 0 auto;
-	margin-bottom: 14px;
+	margin-bottom: 10px;
 	padding: 0; 
 	width: 220px;
 }
 
+p#reactingInfo {
+    text-align: center;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #515151;
+}
+
 #popup{
 	border: 1px solid #ccc;
-	margin: 115px 10px;
-	width: 330px;
+/*	margin: 115px 10px;*/
+	width: 380px;
 	/*height: 235px;  tira o atributo altura para que fique redimensionando sozinho!? */
 	background-color: #eee;
 }
 
-#cabecalho{
+#header{
 	font-family: nexaB;
 	background-color: #fff;
 	border-bottom: 1px solid #ccc;
 	padding: 10px 0 15px 15px;
 }
 
-#cabecalho img{
+#header img{
 	float: left;
 	width: 48px;
+	border-radius: 100%;
 }
 
-#nome{    
+#name{    
 	margin-top: 6px;
     margin-bottom: -8px;
     margin-left: 65px;
-    font-size: 18px;
+	font-size: 17px;
+	width: 200px;
 }
 
-#inscrever {
+#subscribe, #support {
     float: right;
     margin-top: -8px;
     margin-right: 15px;
     font-size: 14px;
 }
-#inscrever a{	
+#subscribe[subscribed="false"] a, #support a{	
 	color: #f00;
 }
-#inscrever a:hover{	
+
+#subscribe[subscribed="true"] a{	
+	color: #515151;
+}
+#subscribe a:hover, #support a:hover{	
 	color: #000;
 }
 
-#botoes{
+
+#buttons{
 	margin:30px 15px 0px 15px
 }
 
@@ -102,15 +116,20 @@ hr{
 	border-color: #000;
 }
 
-.icone{
+[show="false"]{
+	display: none;
+}
+
+
+.icon{
 	float: left;
 }
-.icone.load {
+.icon.loading {
     float: right;
     margin-top: -38px;
     margin-right: -38px;
 }
-.icone img{
+.icon img{
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 8px;

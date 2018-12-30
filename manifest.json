@@ -20,9 +20,9 @@
     "persistent": false
   },
   "browser_action": {
-    "default_icon": "imgs/yt.png",
+    "default_icon": "imgs/logo.png",
     "default_title": "Reaga a esse vídeo/canal",
-    "default_popup": "popup/pop.html"
+    "default_popup": "popup/index.html"
   },
   "permissions": [
     "tabs",

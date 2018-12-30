@@ -8,11 +8,10 @@ function sendMessage(tabId, changeInfo, tabInfo){
 	}
 }
 
-/*
-ESTA COMENTADO PORQUE ESSA FUNCIONALIDADE SÓ SERA ATIVADA DEPOIS
+//ESTA COMENTADO PORQUE ESSA FUNCIONALIDADE SÓ SERA ATIVADA DEPOIS
 chrome.runtime.onInstalled.addListener(function (object) {
-	chrome.tabs.create({url: chrome.extension.getURL('index.html')}, function (tab) {
+	chrome.storage.sync.set({'whenReactInPercent':0.15});
+/* 	chrome.tabs.create({url: chrome.extension.getURL('index.html')}, function (tab) {
 		console.log("New tab launched with http://yoursite.com/");
-	});
+	}); */
 });
-*/
