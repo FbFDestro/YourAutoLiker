@@ -110,7 +110,11 @@ function sendMessageWithoutInfo() {
 
 
 // identify when youtube page finish to load
-document.getElementsByTagName('body')[0].addEventListener('yt-navigate-finish', reactOnTypeOfPage);
+try{
+    document.getElementsByTagName('body')[0].addEventListener('yt-navigate-finish', reactOnTypeOfPage);
+}catch {
+    console.warn('No body element');
+}
 
 function reactOnTypeOfPage() {
     console.log('ativado');
