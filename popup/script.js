@@ -141,23 +141,26 @@ page.addButtonsOnClickEvent(); */
 
 chrome.runtime.onMessage.addListener(reciveMessage);
 function reciveMessage(message, sender, sendResponse) {
-    console.log(message);
-    if (message.type == 'stopLoading') {
-        page.hideElement(page.loadingIcon);
-    } else if(message.type == 'hasInfo'){
+    console.log(sender);
+    if (sender.tab.active) {
+        console.log(message);
+        if (message.type == 'stopLoading') {
+            page.hideElement(page.loadingIcon);
+        } else if (message.type == 'hasInfo') {
 
-        page.hideElement(page.supportBtn);
-        page.hideElement(page.loadingIcon);
-        page.showElement(page.divideLine);
+            page.hideElement(page.supportBtn);
+            page.hideElement(page.loadingIcon);
+            page.showElement(page.divideLine);
 
-        /*     page.updateData({
-                name: 'Fabio',
-                image: 'https://yt3.ggpht.com/a-/AAuE7mAqPxCRniHNABskSif7Fsc2ifnv5ofVYt06zg=s48-mo-c-c0xffffffff-rj-k-no',
-                isSubscribed: true,
-                pageType: '/watch'
-            }); */
-        page.updateData(message.data);
-        page.showLikeDislikeButtons(message.statusLikeDislike);
-        page.addButtonsOnClickEvent();
+            /*     page.updateData({
+                    name: 'Fabio',
+                    image: 'https://yt3.ggpht.com/a-/AAuE7mAqPxCRniHNABskSif7Fsc2ifnv5ofVYt06zg=s48-mo-c-c0xffffffff-rj-k-no',
+                    isSubscribed: true,
+                    pageType: '/watch'
+                }); */
+            page.updateData(message.data);
+            page.showLikeDislikeButtons(message.statusLikeDislike);
+            page.addButtonsOnClickEvent();
+        }
     }
 }
