@@ -20,7 +20,7 @@
     "persistent": false
   },
   "browser_action": {
-    "default_icon": "imgs/logo.png",
+    "default_icon": "imgs/icon.png",
     "default_title": "Reaga a esse vídeo/canal",
     "default_popup": "popup/index.html"
   },
