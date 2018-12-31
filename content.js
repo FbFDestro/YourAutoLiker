@@ -216,9 +216,9 @@ function doLikeOrDislike() {
 
         if (likeBtn.getAttribute('aria-pressed') == 'true' || dislikeBtn.getAttribute('aria-pressed') == 'true') {
             console.log('O video ja recebeu um like ou dislike!\n');
-        } else if (page.likeSet.has(page.channelInfo.name)) {
+        } else if (page.channelInfo !== undefined && page.likeSet.has(page.channelInfo.name)) {
             likeBtn.click();
-        } else if (page.dislikeSet.has(page.channelInfo.name)) {
+        } else if (page.channelInfo !== undefined && page.dislikeSet.has(page.channelInfo.name)) {
             dislikeBtn.click();
         }
     }

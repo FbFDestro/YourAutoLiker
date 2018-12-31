@@ -48,12 +48,7 @@ class Page {
             this.setSubscribeBtnSubscribed();
         }
         if (data.pageType == '/watch') {
-
-            chrome.storage.sync.get(['whenReactInPercent'], function (result) {
-                page.reactingInfo.innerText = "Reagindo em " + result.whenReactInPercent * 100 + "% do video";
-                page.showElement(page.reactingInfo);
-            });
-
+            getWhenReact(this);
         }
     }
 
@@ -93,30 +88,41 @@ class Page {
     }
 
     addButtonsOnClickEvent() {
-        this.alwaysLikeBtn.onclick = function () {
-            if (page.alwaysLikeBtn.getAttribute('alreadySubscribed') == "false") { // start always like
-                sendMessage('startAlwaysLike');
-                page.showStopAlwaysLike();
-            } else { // stop always like
-                sendMessage('stopAlwaysLike');
-                page.showStartAlwaysBoth();
-            }
+        addButtonsOnClickEvent(this);
+    }
+}
+
+function getWhenReact(thePage){
+    chrome.storage.sync.get(['whenReactInPercent'], function (result) {
+        thePage.reactingInfo.innerText = "Reagindo em " + result.whenReactInPercent * 100 + "% do video";
+        thePage.showElement(thePage.reactingInfo);
+    });
+}
+
+function addButtonsOnClickEvent(thePage) {
+    thePage.alwaysLikeBtn.onclick = function () {
+        if (thePage.alwaysLikeBtn.getAttribute('alreadySubscribed') == "false") { // start always like
+            sendMessage('startAlwaysLike');
+            thePage.showStopAlwaysLike();
+        } else { // stop always like
+            sendMessage('stopAlwaysLike');
+            thePage.showStartAlwaysBoth();
         }
-        this.alwaysDislikeBtn.onclick = function () {
-            if (page.alwaysDislikeBtn.getAttribute('alreadySubscribed') == "false") { // start always dislike
-                sendMessage('startAlwaysDislike');
-                page.showStopAlwaysDislike();
-            } else { // stop always dislike
-                sendMessage('stopAlwaysDislike');
-                page.showStartAlwaysBoth();
-            }
+    }
+    thePage.alwaysDislikeBtn.onclick = function () {
+        if (thePage.alwaysDislikeBtn.getAttribute('alreadySubscribed') == "false") { // start always dislike
+            sendMessage('startAlwaysDislike');
+            thePage.showStopAlwaysDislike();
+        } else { // stop always dislike
+            sendMessage('stopAlwaysDislike');
+            thePage.showStartAlwaysBoth();
         }
-        this.subscribeBtn.onclick = function () {
-            sendMessage('clickSubscribeBtn');
-            if (page.subscribeBtn.getAttribute('subscribed') == 'false') {
-                page.setSubscribeBtnSubscribed();
-            } // else is not needed because to confirm subscription is needed to confirm and popup will close anyway
-        }
+    }
+    thePage.subscribeBtn.onclick = function () {
+        sendMessage('clickSubscribeBtn');
+        if (thePage.subscribeBtn.getAttribute('subscribed') == 'false') {
+            thePage.setSubscribeBtnSubscribed();
+        } // else is not needed because to confirm subscription is needed to confirm and popup will close anyway
     }
 }
 
