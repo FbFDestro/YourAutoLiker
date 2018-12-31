@@ -3,14 +3,29 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: nexaL;
+    src: url(../fontes/nexaL.otf);
+}
+
+
+@font-face {
+    font-family: nexaB;
+    src: url(../fontes/nexaB.otf);
+}
+
+body{
+    font-family: NexaL;
+}
+
 header{
     background-color: #232323;
     width: 100%;
 }
 
 #header-content{
-    height: 60px;
-    width: 980px;
+    height: 70px;
+    width: 90%;
     margin: 0 auto;
     position: relative;
 }
@@ -52,13 +67,106 @@ ul#menu{
 #menu li a {
     display: block;
     color: white;
-    padding: 0 15px;
-    line-height: 60px;
-    height: 60px;
+    font-family: NexaB;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 0 20px;
+    line-height: 70px;
+    height: 70px;
     text-decoration: none;
     text-align: center;
+    transition: 0.6s;
 }
 
 #menu li a:hover{
+    background-color: #404040;
+    transition: 0.6s;
+}
+
+#menu li a.support{
+    color: #f00;
+}
+
+#menu li a.active{
     background-color: #303030;
+}
+
+article{
+    width: 900px;
+    min-height: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding-top: 20px;
+}
+
+.box{
+    width: 50%;
+    float: left;
+}
+
+.header-box{
+    border: 1px solid;
+    background-color: #fff;
+    text-align: center;
+    width: 95%;
+    height: 70px;
+    line-height: 70px;
+    position: relative;
+    margin: 0 auto;
+    font-family: NexaB;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.header-box img{
+    float: left;
+    width: 38px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.like .header-box{
+    border-color: #5e70fa;
+}
+
+.dislike .header-box{
+    border-color: #f00;
+}
+
+.content-box{
+    position: relative;
+    margin: 0 auto;
+    width:95%;
+    max-height: 200px;
+    overflow: auto;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    background-color: #eee;
+}
+
+.btn{
+    width: 90%;
+    height: 40px;
+    line-height: 45px;
+    border-radius: 12px;
+    padding-left: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.btn img{
+    width: 32px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
