@@ -49,9 +49,8 @@ let page = new Page();
 
 chrome.runtime.onMessage.addListener(getMessage);
 function getMessage(message, sender, sendResponse) {
-    if (message == 'pageUpdated') { // era onde eu identificava que a pagina mudou, agora uso o evento
+    if (message == 'pageUpdated') {
         reactOnTypeOfPage();
-        // maybe needed when the page is realy loading (f5)
         sendMessageWithoutInfo();
         page.channelInfo = undefined;
         console.log('message');
@@ -60,6 +59,13 @@ function getMessage(message, sender, sendResponse) {
         if(window.location.hostname != 'www.youtube.com' || window.location.pathname == '/'){
             sendMessageStopLoading();
         }else if (page.channelInfo !== undefined) {
+        /*
+            when page changes and you are in other tab, youtube doesn't insert the image
+            it happend when you are watching videos with auto-play
+        */
+            if(page.typeOfPage ==  '/watch' && page.channelInfo.image == ''){
+                page.channelInfo.image = document.querySelector('.ytd-video-owner-renderer > img').src;
+            }
             sendMessageWithInfo();
         } else { // page has no objects to iteract with yet
             sendMessageWithoutInfo();
