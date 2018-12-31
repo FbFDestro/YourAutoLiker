@@ -25,7 +25,7 @@ header{
 
 #header-content{
     height: 70px;
-    width: 90%;
+    width: 850px;
     margin: 0 auto;
     position: relative;
 }
@@ -92,8 +92,7 @@ ul#menu{
 }
 
 article{
-    width: 900px;
-    min-height: 500px;
+    width: 850px; /* poderia fazer redimensionar para menores*/
     margin: 0 auto;
     background-color: #fff;
     padding-top: 20px;
@@ -188,13 +187,13 @@ article{
     transform: translateY(-50%);
 }
 
-.react .header-box{
+.react .header-box, .save .header-box{
     border-color: #ccc;
     height: 40px;
     line-height: 45px;
 }
 
-.react .content-box{
+.react .content-box, .save .content-box{
     min-height: 70px;
     max-height: 70px;
 }
@@ -242,4 +241,15 @@ article{
     border-radius: 50%;
     background: #f00;
     cursor: pointer;
+  }
+
+  .save .btn{
+      font-family: nexaB;
+      color: #fff;
+      background-color: #16c84c;
+      text-align: center;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
   }
