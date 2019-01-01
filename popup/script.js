@@ -10,6 +10,11 @@ class Page {
         this.divideLine = document.getElementById('divideLine');
         this.loadingIcon = document.querySelector('.icon.loading');
         this.supportBtn = document.getElementById('support');
+
+        this.configurationBtn = document.getElementById('configureExtensionBtn');
+        this.configurationBtn.onclick = function (){
+            chrome.runtime.openOptionsPage();
+        }
     }
 
     showElement(element) {
@@ -142,7 +147,7 @@ page.addButtonsOnClickEvent(); */
 chrome.runtime.onMessage.addListener(reciveMessage);
 function reciveMessage(message, sender, sendResponse) {
     console.log(sender);
-    if (sender.tab.active) {
+    if (sender !== undefined && sender.tab !== undefined && sender.tab.active) {
         console.log(message);
         if (message.type == 'stopLoading') {
             page.hideElement(page.loadingIcon);
