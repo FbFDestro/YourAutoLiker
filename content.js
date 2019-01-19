@@ -174,7 +174,7 @@ function getElementsOfVideo() {
 
     try {
         // may be needed to use others selectors in others versions of Youtube
-        let name = document.getElementById('owner-container').innerText;
+        let name = document.getElementById('owner-container').innerText.trim();
         let image = document.querySelector('.ytd-video-owner-renderer > img').src;
         let subscribeBtn = document.querySelector('#subscribe-button.ytd-video-secondary-info-renderer > ytd-subscribe-button-renderer > paper-button');
 
@@ -227,7 +227,16 @@ function doLikeOrDislike() {
 function getElementsOfChannel() {
     console.log('is channel');
     try {
-        let name = document.getElementById('channel-title').innerText;
+        let name = document.getElementById('channel-title');
+
+        if (name.querySelector('span') !== null) { // sometimes there is a Span inside element depending on youtube rendering
+            name = name.querySelector('span').innerText;
+        } else {
+            name = name.innerText;
+        }
+
+        name.trim(); // avoid white spaces before and after string
+
         let image = document.querySelector('#channel-header-container > yt-img-shadow > img').src;
         let subscribeBtn = document.querySelector('#channel-header-container > #subscribe-button > ytd-subscribe-button-renderer > paper-button');
 
@@ -246,8 +255,9 @@ function getElementsOfChannel() {
 function getElementsOfPlaylist() {
     console.log('is playlist');
     try {
-        let name = document.getElementById('owner-name').innerText;
-        let image = document.querySelector('.ytd-video-owner-renderer > #img.yt-img-shadow').src;
+        let name = document.querySelectorAll('#owner-container > #video-owner > ytd-video-owner-renderer > a')[0].getAttribute('aria-label').trim();
+
+        let image = document.querySelector('#owner-container > #video-owner > ytd-video-owner-renderer > a > #avatar > img').src;
         let subscribeBtn = document.querySelector('#owner-container > #button > ytd-subscribe-button-renderer > paper-button');
 
         let channelInfo = new ChannelInfo(name, image, subscribeBtn);
