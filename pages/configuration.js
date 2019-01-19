@@ -13,6 +13,7 @@ class Page {
         this.likeContent = document.querySelector('.like > .content-box');
         this.dislikeContent = document.querySelector('.dislike > .content-box');
         this.saveBtn = document.querySelector('.save > .content-box > .btn');
+        this.saveTitle = document.querySelector('.save > .header-box');
         this.numberOfRemovals = 0;
         this.saveBtn.onclick = saveData;
     }
@@ -22,12 +23,16 @@ class Page {
     }
 
     setChangesToBeSaved() {
-        this.saveBtn.innerText = 'Has changes';
+        this.saveBtn.innerText = 'Salvar altereações';
+        this.saveBtn.setAttribute('saved', 'false');
+        this.saveTitle.innerText = 'Informações precisam ser salvas';
         modified = true;
     }
 
     setNoChanges() {
-        this.saveBtn.innerText = 'No changes';
+        this.saveBtn.innerText = 'Sem alterações';
+        this.saveBtn.setAttribute('saved', 'true');
+        this.saveTitle.innerText = 'Informações salvas';
         modified = false;
         page.sliderStartValue = page.slider.value;
         page.numberOfRemovals = 0;
@@ -110,7 +115,7 @@ function iterateListCreatingButtons(list, contentBox) {
 }
 
 function saveData() {
-    if (modified) { // only make changes if there are changes
+    if (modified && page.saveBtn.getAttribute('saved') == 'false') { // only make changes if there are changes
         chrome.storage.sync.set({ 'whenReactInPercent': page.slider.value/100}, function () { // first save when react
             changeChannelsSet();
             modified = false;
