@@ -40,7 +40,9 @@ class Page {
     }
 
     toString() {
-        if (this.channelInfo !== undefined) { return 'Name: ' + this.channelInfo.name; }
+        if (this.channelInfo !== undefined) {
+            return 'Name: ' + this.channelInfo.name;
+        }
         return 'Empty';
     }
 }
@@ -48,6 +50,7 @@ class Page {
 let page = new Page();
 
 chrome.runtime.onMessage.addListener(getMessage);
+
 function getMessage(message, sender, sendResponse) {
     if (message == 'pageUpdated') {
         reactOnTypeOfPage();
@@ -56,14 +59,14 @@ function getMessage(message, sender, sendResponse) {
         console.log('message');
     } else if (message == 'loadingPopup') {
 
-        if(window.location.hostname != 'www.youtube.com' || window.location.pathname == '/'){
+        if (window.location.hostname != 'www.youtube.com' || window.location.pathname == '/') {
             sendMessageStopLoading();
-        }else if (page.channelInfo !== undefined) {
-        /*
-            when page changes and you are in other tab, youtube doesn't insert the image
-            it happend when you are watching videos with auto-play
-        */
-            if(page.typeOfPage ==  '/watch' && page.channelInfo.image == ''){
+        } else if (page.channelInfo !== undefined) {
+            /*
+                when page changes and you are in other tab, youtube doesn't insert the image
+                it happend when you are watching videos with auto-play
+            */
+            if (page.typeOfPage == '/watch' && page.channelInfo.image == '') {
                 page.channelInfo.image = document.querySelector('.ytd-video-owner-renderer > img').src;
             }
             sendMessageWithInfo();
@@ -79,8 +82,8 @@ function getMessage(message, sender, sendResponse) {
         startAlwaysDislike();
     } else if (message == 'stopAlwaysDislike') {
         stopAlwaysDislike();
-    }else if(message == 'clickSubscribeBtn'){
-        if(page.channelInfo !== undefined) {
+    } else if (message == 'clickSubscribeBtn') {
+        if (page.channelInfo !== undefined) {
             page.channelInfo.subscribeBtn.click();
         }
     }
@@ -90,8 +93,10 @@ function sendMessage(message) {
     chrome.runtime.sendMessage(message);
 }
 
-function sendMessageStopLoading(){
-    sendMessage({type: 'stopLoading'});
+function sendMessageStopLoading() {
+    sendMessage({
+        type: 'stopLoading'
+    });
 }
 
 function sendMessageWithInfo() {
@@ -111,14 +116,16 @@ function sendMessageWithInfo() {
 }
 
 function sendMessageWithoutInfo() {
-    sendMessage({ type: 'pageHasNoInfoYet' });
+    sendMessage({
+        type: 'pageHasNoInfoYet'
+    });
 }
 
 
 // identify when youtube page finish to load
-try{
+try {
     document.getElementsByTagName('body')[0].addEventListener('yt-navigate-finish', reactOnTypeOfPage);
-}catch {
+} catch {
     console.warn('No body element');
 }
 
@@ -196,8 +203,10 @@ function addEventListenerTimeUpdate() {
 
         chrome.storage.sync.get(['whenReactInPercent'], function (result) {
             let whenReact = video.duration * result.whenReactInPercent; // define the time that should react
-            whenReact = Math.min(whenReact, video.duration-1); // react at most 1 second before ending video
-            video.ontimeupdate = function () { onVideoTimeUpdate(video, whenReact) }; // run code that verify is will try to react on video
+            whenReact = Math.min(whenReact, video.duration - 1); // react at most 1 second before ending video
+            video.ontimeupdate = function () {
+                onVideoTimeUpdate(video, whenReact)
+            }; // run code that verify is will try to react on video
         });
     }
 }
@@ -301,15 +310,20 @@ function stopAlwaysDislike() {
 
 function saveLikeSetChanges() {
     var likeList = Array.from(page.likeSet);
-    chrome.storage.sync.set({ "likeList": likeList }, function () {
+    chrome.storage.sync.set({
+        "likeList": likeList
+    }, function () {
         console.log('Lista de like salva como: ' + likeList);
         addEventListenerTimeUpdate();
         //doLikeOrDislike(); // tem que estar dentro para evitar problemas de sincronização
     });
 }
+
 function saveDislikeSetChanges() {
     var dislikeList = Array.from(page.dislikeSet);
-    chrome.storage.sync.set({ "dislikeList": dislikeList }, function () {
+    chrome.storage.sync.set({
+        "dislikeList": dislikeList
+    }, function () {
         console.log('Lista de dislike salva como: ' + dislikeList);
         addEventListenerTimeUpdate();
         //doLikeOrDislike(); // tem que estar dentro para evitar problemas de sincronização
