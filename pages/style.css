@@ -172,6 +172,13 @@ article {
     transition: 0.4s;
 }
 
+.btn p {
+    max-width: 302px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .btn.removed {
     opacity: 0.6;
     transition: 0.4s;

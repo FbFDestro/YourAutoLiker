@@ -38,15 +38,15 @@ class Page {
         page.numberOfRemovals = 0;
     }
 
-    changeNumberOfRemovals(action){
-        if(action == '+'){
+    changeNumberOfRemovals(action) {
+        if (action == '+') {
             this.numberOfRemovals++;
         } else {
             this.numberOfRemovals--;
         }
     }
 
-    checkChangesToBeSaved(){
+    checkChangesToBeSaved() {
         if (this.slider.value != this.sliderStartValue || this.numberOfRemovals != 0) {
             this.setChangesToBeSaved();
         } else {
@@ -116,7 +116,9 @@ function iterateListCreatingButtons(list, contentBox) {
 
 function saveData() {
     if (modified && page.saveBtn.getAttribute('saved') == 'false') { // only make changes if there are changes
-        chrome.storage.sync.set({ 'whenReactInPercent': page.slider.value/100}, function () { // first save when react
+        chrome.storage.sync.set({
+            'whenReactInPercent': page.slider.value / 100
+        }, function () { // first save when react
             changeChannelsSet();
             modified = false;
             page.setNoChanges();
@@ -124,18 +126,19 @@ function saveData() {
     }
 }
 
-function changeChannelsSet(){
+function changeChannelsSet() {
     findRemovals(page.likeContent, page.likeSet, saveLikeSet);
     findRemovals(page.dislikeContent, page.dislikeSet, saveDislikeSet);
-    
+
 }
-function findRemovals (content, set, save, action){
+
+function findRemovals(content, set, save) {
     let buttons = content.getElementsByClassName('btn');
     for (btn of buttons) {
         let icon = btn.getElementsByTagName('img')[0].src;
         if (icon.endsWith('add.png')) { // has removed
             let name = btn.getElementsByTagName('p')[0].innerHTML;
-            if(set !== undefined) // posso tirar dps
+            if (set !== undefined) // posso tirar dps
                 set.delete(name);
         }
     }
@@ -143,10 +146,12 @@ function findRemovals (content, set, save, action){
     save();
 }
 
-function saveLikeSet(){
+function saveLikeSet() {
     if (page.likeSet !== undefined) {
         var likeList = Array.from(page.likeSet);
-        chrome.storage.sync.set({ "likeList": likeList }, function () {
+        chrome.storage.sync.set({
+            "likeList": likeList
+        }, function () {
             console.log('Lista de like salva como: ' + likeList);
             removeButtons(page.likeContent);
         });
@@ -156,14 +161,16 @@ function saveLikeSet(){
 function saveDislikeSet() {
     if (page.dislikeSet !== undefined) {
         var dislikeList = Array.from(page.dislikeSet);
-        chrome.storage.sync.set({ "dislikeList": dislikeList }, function () {
+        chrome.storage.sync.set({
+            "dislikeList": dislikeList
+        }, function () {
             console.log('Lista de dislike salva como: ' + dislikeList);
             removeButtons(page.dislikeContent);
         });
     }
 }
 
-function removeButtons(content){
+function removeButtons(content) {
     let buttons = content.getElementsByClassName('btn');
     for (btn of buttons) {
         let icon = btn.getElementsByTagName('img')[0].src;

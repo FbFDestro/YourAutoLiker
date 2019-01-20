@@ -68,15 +68,17 @@ p#reactingInfo {
 #name {
 	margin-top: 6px;
 	margin-bottom: -8px;
-	margin-left: 65px;
+	margin-left: 58px;
 	font-size: 17px;
-	width: 200px;
+	width: 205px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #refresh {
 	float: right;
-	margin-right: -82px;
-	margin-top: 20px;
+	margin-top: -25px;
 }
 
 #refresh img {

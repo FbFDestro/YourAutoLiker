@@ -29,13 +29,6 @@ class Page {
         element.setAttribute('show', "false");
     }
 
-    trimString(str) {
-        if (str.length > 34) {
-            return str.substring(0, 34) + '..';
-        }
-        return str;
-    }
-
     setSubscribeBtnNotSubscribed() {
         this.subscribeBtn.setAttribute('subscribed', "false");
         this.subscribeBtn.getElementsByTagName('a')[0].innerText = 'Inscrever-se';
@@ -47,7 +40,7 @@ class Page {
 
     updateData(data) {
 
-        this.name.innerText = this.trimString(data.name);
+        this.name.innerText = data.name;
         this.image.src = data.image;
 
         this.showElement(this.subscribeBtn);
