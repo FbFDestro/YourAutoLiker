@@ -52,28 +52,40 @@ let page = new Page();
 chrome.runtime.onMessage.addListener(getMessage);
 
 function getMessage(message, sender, sendResponse) {
+
     if (message == 'pageUpdated') {
-        reactOnTypeOfPage();
-        sendMessageWithoutInfo();
+
         page.channelInfo = undefined;
+        sendMessageWithoutInfo();
+        reactOnVideoPage();
+
         console.log('message');
     } else if (message == 'loadingPopup') {
 
+        reactOnTypeOfPage();
         if (window.location.hostname != 'www.youtube.com' || window.location.pathname == '/') {
             sendMessageStopLoading();
         } else if (page.channelInfo !== undefined) {
-            /*
-                when page changes and you are in other tab, youtube doesn't insert the image
-                it happend when you are watching videos with auto-play
-            */
+
+            /* 
+            //    when page changes and you are in other tab, youtube doesn't insert the image
+            //    it happend when you are watching videos with auto-play
+            
             if (page.typeOfPage == '/watch' && page.channelInfo.image == '') {
                 page.channelInfo.image = document.querySelector('.ytd-video-owner-renderer > img').src;
             }
+             */
+
             sendMessageWithInfo();
+
         } else { // page has no objects to iteract with yet
             sendMessageWithoutInfo();
         }
 
+    } else if (message == 'popupRequestRefresh') {
+        console.log('request refresh');
+        page.loadedLists = false;
+        reactOnTypeOfPage();
     } else if (message == 'startAlwaysLike') {
         startAlwaysLike();
     } else if (message == 'stopAlwaysLike') {
@@ -124,13 +136,21 @@ function sendMessageWithoutInfo() {
 
 // identify when youtube page finish to load
 try {
-    document.getElementsByTagName('body')[0].addEventListener('yt-navigate-finish', reactOnTypeOfPage);
+    document.getElementsByTagName('body')[0].addEventListener('yt-navigate-finish', reactOnVideoPage);
 } catch {
     console.warn('No body element');
 }
 
+function reactOnVideoPage() {
+    console.log('react on video page');
+    page.clear();
+    if (window.location.hostname == 'www.youtube.com' && window.location.pathname.startsWith('/watch')) {
+        loadLists(getElementsOfVideo, true); // load lists and wait 2 second to get elements (true)
+    }
+}
+
 function reactOnTypeOfPage() {
-    console.log('ativado');
+    console.log('react on type of page');
     page.clear();
 
     if (window.location.hostname == 'www.youtube.com') {
@@ -144,16 +164,25 @@ function reactOnTypeOfPage() {
         for (let type in possibleTypesOfPages) {
             if (window.location.pathname.startsWith(type)) {
                 page.typeOfPage = type;
-                loadLists(possibleTypesOfPages[type]); // load the lists and get elements from the page
+                loadLists(possibleTypesOfPages[type], false);
+                /* load the lists and get elements from the page without waiting 2 second */
                 break;
             }
         }
     }
 }
 
-function loadLists(getElements) { // load the list of channels and than get elements of the page
+function loadLists(getElements, wait) { // load the list of channels and than get elements of the page
     console.log('Load lists');
 
+    let timeToWait = 0;
+    if (wait) {
+        timeToWait = 2000;
+    }
+
+    /*     Only load lists if they are not loaded yet
+            maybe occour problems when the lists are changed on configuration page (is needed to reaload)
+     */
     if (!page.loadedLists) {
         chrome.storage.sync.get(null, (result) => {
             if (result.likeList !== undefined) page.likeSet = new Set(result.likeList);
@@ -163,12 +192,11 @@ function loadLists(getElements) { // load the list of channels and than get elem
             console.log('Lista de dislikes: ' + result.dislikeList);
 
             page.loadedLists = true;
-            setTimeout(getElements, 2000); // waiting is needed for the elements loading
+            setTimeout(getElements, timeToWait); // waiting is needed for the elements loading
         });
     } else {
-        setTimeout(getElements, 2000);
+        setTimeout(getElements, timeToWait);
     }
-
 }
 
 /*

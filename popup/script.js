@@ -10,11 +10,15 @@ class Page {
         this.divideLine = document.getElementById('divideLine');
         this.loadingIcon = document.querySelector('.icon.loading');
         this.supportBtn = document.getElementById('support');
+        this.refreshBtn = document.getElementById('refresh');
 
         this.configurationBtn = document.getElementById('configureExtensionBtn');
-        this.configurationBtn.onclick = function (){
+        this.configurationBtn.onclick = function () {
             chrome.runtime.openOptionsPage();
         }
+
+        this.refreshBtn.onclick = refreshed;
+
     }
 
     showElement(element) {
@@ -49,7 +53,7 @@ class Page {
         this.showElement(this.subscribeBtn);
         if (!data.isSubscribed) {
             this.setSubscribeBtnNotSubscribed();
-        }else {
+        } else {
             this.setSubscribeBtnSubscribed();
         }
         if (data.pageType == '/watch') {
@@ -97,7 +101,8 @@ class Page {
     }
 }
 
-function getWhenReact(thePage){
+
+function getWhenReact(thePage) {
     chrome.storage.sync.get(['whenReactInPercent'], function (result) {
         thePage.reactingInfo.innerText = "Reagindo em " + result.whenReactInPercent * 100 + "% do video";
         thePage.showElement(thePage.reactingInfo);
@@ -132,7 +137,11 @@ function addButtonsOnClickEvent(thePage) {
 }
 
 function sendMessage(message) {
-    chrome.tabs.query({ active: true, currentWindow: true }, getTabInfo);
+    chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }, getTabInfo);
+
     function getTabInfo(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, message);
     }
@@ -145,6 +154,7 @@ sendMessage('loadingPopup'); // send message to content script
 page.addButtonsOnClickEvent(); */
 
 chrome.runtime.onMessage.addListener(reciveMessage);
+
 function reciveMessage(message, sender, sendResponse) {
     console.log(sender);
     if (sender !== undefined && sender.tab !== undefined && sender.tab.active) {
@@ -168,4 +178,16 @@ function reciveMessage(message, sender, sendResponse) {
             page.addButtonsOnClickEvent();
         }
     }
+}
+
+function refreshed() {
+    sendMessage('popupRequestRefresh');
+
+    let img = page.refreshBtn.getElementsByTagName('img')[0];
+    img.src = '../imgs/load.gif';
+
+    setTimeout(function () {
+        img.src = '../imgs/refresh.png';
+    }, 600);
+
 }
