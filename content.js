@@ -54,38 +54,18 @@ chrome.runtime.onMessage.addListener(getMessage);
 function getMessage(message, sender, sendResponse) {
 
     if (message == 'pageUpdated') {
-
-        page.channelInfo = undefined;
-        sendMessageWithoutInfo();
         reactOnVideoPage();
-
         console.log('message');
-    } else if (message == 'loadingPopup') {
-
-        reactOnTypeOfPage();
+    } else if (message == 'loadingPopup' || message == 'popupRequestRefresh') {
         if (window.location.hostname != 'www.youtube.com' || window.location.pathname == '/') {
             sendMessageStopLoading();
-        } else if (page.channelInfo !== undefined) {
-
-            /* 
-            //    when page changes and you are in other tab, youtube doesn't insert the image
-            //    it happend when you are watching videos with auto-play
-            
-            if (page.typeOfPage == '/watch' && page.channelInfo.image == '') {
-                page.channelInfo.image = document.querySelector('.ytd-video-owner-renderer > img').src;
+        } else {
+            if (message == 'popupRequestRefresh') {
+                console.log('request refresh.');
+                page.loadedLists = false;
             }
-             */
-
-            sendMessageWithInfo();
-
-        } else { // page has no objects to iteract with yet
-            sendMessageWithoutInfo();
+            reactOnTypeOfPage();
         }
-
-    } else if (message == 'popupRequestRefresh') {
-        console.log('request refresh');
-        page.loadedLists = false;
-        reactOnTypeOfPage();
     } else if (message == 'startAlwaysLike') {
         startAlwaysLike();
     } else if (message == 'stopAlwaysLike') {
@@ -157,6 +137,7 @@ function reactOnTypeOfPage() {
         let possibleTypesOfPages = {
             '/watch': getElementsOfVideo,
             '/channel': getElementsOfChannel,
+            '/c': getElementsOfChannel,
             '/user': getElementsOfChannel,
             '/playlist': getElementsOfPlaylist,
         };

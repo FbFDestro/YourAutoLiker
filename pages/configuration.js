@@ -129,7 +129,6 @@ function saveData() {
 function changeChannelsSet() {
     findRemovals(page.likeContent, page.likeSet, saveLikeSet);
     findRemovals(page.dislikeContent, page.dislikeSet, saveDislikeSet);
-
 }
 
 function findRemovals(content, set, save) {
@@ -137,7 +136,7 @@ function findRemovals(content, set, save) {
     for (btn of buttons) {
         let icon = btn.getElementsByTagName('img')[0].src;
         if (icon.endsWith('add.png')) { // has removed
-            let name = btn.getElementsByTagName('p')[0].innerHTML;
+            let name = btn.getElementsByTagName('p')[0].textContent;
             if (set !== undefined) // posso tirar dps
                 set.delete(name);
         }
