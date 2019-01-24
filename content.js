@@ -125,6 +125,7 @@ function reactOnVideoPage() {
     console.log('react on video page');
     page.clear();
     if (window.location.hostname == 'www.youtube.com' && window.location.pathname.startsWith('/watch')) {
+        page.typeOfPage = '/watch';
         loadLists(getElementsOfVideo, true); // load lists and wait 2 second to get elements (true)
     }
 }
@@ -208,6 +209,7 @@ function getElementsOfVideo() {
 
 function addEventListenerTimeUpdate() {
     if (page.typeOfPage == '/watch') {
+        console.log('adding event');
         let video = document.querySelector('.video-stream');
 
         chrome.storage.sync.get(['whenReactInPercent'], function (result) {
