@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: nexaL;
+    src: url(../fontes/nexaL.otf);
+}
+
+
+@font-face {
+    font-family: nexaB;
+    src: url(../fontes/nexaB.otf);
+}
+
+body {
+    font-family: NexaL;
+    background-color: #fff;
+}
+
+header {
+    background-color: #232323;
+    width: 100%;
+}
+
+#header-fix {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background: #232323;
+    width: 100%;
+}
+
+#header-content {
+    height: 80px;
+    width: 850px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#logo {
+    width: 170px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#logo img {
+    margin: 0 auto;
+    width: 170px;
+}
+
+#logo a {
+    opacity: 1;
+    transition: 0.6s;
+}
+
+#logo a:hover {
+    opacity: 0.8;
+    transition: 0.6s;
+}
+
+nav {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ul#menu {
+    list-style-type: none;
+}
+
+#menu li {
+    float: left;
+    display: block;
+}
+
+#menu li a {
+    display: block;
+    color: white;
+    border-radius: 18px;
+    font-family: NexaB;
+    text-transform: uppercase;
+    line-height: 50px;
+    height: 46px;
+    font-size: 14px;
+    margin-left: 15px;
+    padding: 0 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.6s;
+}
+
+#menu li a:hover {
+    background-color: #404040;
+    transition: 0.6s;
+}
+
+#menu li a.support {
+    color: #f00;
+}
+
+#menu li a.active {
+    background-color: #303030;
+}
+
+#install {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 850px;
+    border-top: 2px solid #f00;
+    padding: 20px 0;
+}
+
+.install-header {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: nexaB;
+    text-align: center;
+}
+
+.color {
+    display: inline;
+}
+
+.lk-color {
+    color: #2ab0ee;
+}
+
+.dl-color {
+    color: #f00;
+}
+
+.install-content {
+    color: #fff;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#installBtn {
+    color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 15px;
+    margin-top: 18px;
+    background-color: #f00;
+    font-family: nexaB;
+    text-transform: uppercase;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+#installBtn:hover {
+    opacity: 0.6;
+    transition: 0.6s;
+}
+
+article {
+    width: 850px;
+    min-height: 1000px;
+    margin: 0 auto;
+}
+
+#howToUse {
+    font-family: nexaB;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+
+#bar {
+    padding-top: 20px;
+    height: 50px;
+}
+
+#search-info {
+    float: left;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: nexaB;
+    margin-top: 14px;
+    margin-right: 18px;
+}
+
+#search {
+    float: left;
+    width: 530px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: #eee;
+    border: solid 1px #ccc;
+}
+
+#icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    border: solid 1px #686868;
+    background-color: #ccc;
+    float: right;
+    position: relative;
+}
+
+#icon img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+}
+
+#icon-cursor {
+    float: right;
+    margin-top: -8px;
+    position: relative;
+}
+
+#icon-cursor img {
+    width: 25px;
+}
+
+#popup {
+    margin-top: 10px;
+}
+
+#popup-text {
+    float: left;
+    width: 462px;
+    line-height: 20px;
+}
+
+#popup img {
+    float: right;
+    border: solid 1px #ccc;
+}
