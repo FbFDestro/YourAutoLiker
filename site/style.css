@@ -48,7 +48,7 @@ header {
 
 #logo img {
     margin: 0 auto;
-    width: 170px;
+    width: 190px;
 }
 
 #logo a {
@@ -161,21 +161,63 @@ ul#menu {
 }
 
 article {
-    width: 850px;
+    width: 100%;
     min-height: 1000px;
     margin: 0 auto;
 }
 
-#howToUse {
-    font-family: nexaB;
-    font-size: 20px;
-    text-transform: uppercase;
-    margin-top: 40px;
+.content {
+    width: 850px;
+    margin: 0 auto;
+}
+
+#howToUsePopup {
+    background-color: #fff;
+    height: 360px;
+}
+
+#howToUseConfiguration {
+    background-color: #eee;
+    height: 360px;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-right: 0;
 }
 
 #bar {
     padding-top: 20px;
     height: 50px;
+}
+
+#adress {
+    margin-top: 6px;
+    float: right;
+}
+
+.itens {
+    text-transform: uppercase;
+    font-size: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+
+#image-name {
+    margin-top: 13px;
+}
+
+#addLike {
+    margin-top: 44px;
+}
+
+#addDisike {
+    margin-top: 31px;
+}
+
+#percentage {
+    margin-top: 18px;
+}
+
+#configuration {
+    margin-top: 21px;
 }
 
 #search-info {
@@ -185,43 +227,6 @@ article {
     font-family: nexaB;
     margin-top: 14px;
     margin-right: 18px;
-}
-
-#search {
-    float: left;
-    width: 530px;
-    padding: 10px 20px;
-    border-radius: 15px;
-    background-color: #eee;
-    border: solid 1px #ccc;
-}
-
-#icon {
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    border: solid 1px #686868;
-    background-color: #ccc;
-    float: right;
-    position: relative;
-}
-
-#icon img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 22px;
-}
-
-#icon-cursor {
-    float: right;
-    margin-top: -8px;
-    position: relative;
-}
-
-#icon-cursor img {
-    width: 25px;
 }
 
 #popup {
