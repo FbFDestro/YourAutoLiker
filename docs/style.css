@@ -164,13 +164,13 @@ a[name="comoUsar"] {
     border: solid 1px #ccc;
 }
 
-#horizontalAd {
+#horizontalImg {
     clear: both;
     margin-top: 305px;
     height: 90px;
 }
 
-#horizontalAdContent {
+#horizontalImgContent {
     width: 728px;
     text-align: center;
     line-height: 90px;
@@ -211,7 +211,7 @@ a[name="comoUsar"] {
     margin-top: 20px;
 }
 
-#rightAd {
+#rightImg {
     margin-top: 20px;
     float: right;
     border: 1px solid #eee;
@@ -219,7 +219,7 @@ a[name="comoUsar"] {
     border-radius: 20px;
 }
 
-#rightAdContent {
+#rightImgContent {
     width: 120px;
     background: #eee;
     text-align: center;
