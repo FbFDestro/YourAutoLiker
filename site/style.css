@@ -84,9 +84,16 @@ article {
     margin: 0 auto;
 }
 
+a[name="comoUsar"] {
+    width: 100px;
+    /*     border: 1px solid; */
+    position: absolute;
+    margin-top: -100px;
+}
+
 #howToUsePopup {
     background-color: #fff;
-    height: 360px;
+    height: 480px;
 }
 
 
@@ -157,6 +164,21 @@ article {
     border: solid 1px #ccc;
 }
 
+#horizontalAd {
+    clear: both;
+    margin-top: 305px;
+    height: 90px;
+}
+
+#horizontalAdContent {
+    width: 728px;
+    text-align: center;
+    line-height: 90px;
+    margin: 0 auto;
+    height: 90px;
+    background: #eee;
+}
+
 #howToUseConfiguration {
     background-color: #fff;
     /*     height: 360px; */
@@ -181,12 +203,35 @@ article {
 }
 
 #configurationImg img {
-    padding: 15px;
+    padding: 12px;
     border: solid 1px #ccc;
     border-radius: 20px;
     background-color: #fff;
-    width: 650px;
+    width: 655px;
     margin-top: 20px;
+}
+
+#rightAd {
+    margin-top: 20px;
+    float: right;
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 20px;
+}
+
+#rightAdContent {
+    width: 120px;
+    background: #eee;
+    text-align: center;
+    line-height: 240px;
+    height: 240px;
+}
+
+a[name="apoie"] {
+    width: 100px;
+    /*     border: 1px solid; */
+    position: absolute;
+    margin-top: -100px;
 }
 
 #support {

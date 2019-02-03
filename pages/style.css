@@ -27,6 +27,20 @@ article {
     padding-top: 20px;
 }
 
+#horizontalAd {
+    margin-bottom: 15px;
+    clear: both;
+}
+
+#horizontalAdContent {
+    width: 728px;
+    text-align: center;
+    line-height: 90px;
+    margin: 0 auto;
+    height: 90px;
+    background: #eee;
+}
+
 .box {
     width: 50%;
     margin-bottom: 20px;
