@@ -5,13 +5,13 @@
 
 @font-face {
     font-family: nexaL;
-    src: url(../fontes/nexaL.otf);
+    src: url(files/nexaL.otf);
 }
 
 
 @font-face {
     font-family: nexaB;
-    src: url(../fontes/nexaB.otf);
+    src: url(files/nexaB.otf);
 }
 
 body {
