@@ -1,4 +1,4 @@
-# YourLiker
+# [YourLiker](https://fbfdestro.github.io/YourLiker/)
 
 Browser extension that automatically like or dislike youtube videos from selected channels
 
