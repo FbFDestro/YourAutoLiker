@@ -20,7 +20,7 @@ header {
 }
 
 #logo {
-    width: 170px;
+    width: 300px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -28,7 +28,7 @@ header {
 
 #logo img {
     margin: 0 auto;
-    width: 190px;
+    width: 300px;
 }
 
 #logo a {
