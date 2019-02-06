@@ -251,4 +251,62 @@ a[name="apoie"] {
 
 #supportSubtitle {
     font-size: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 10px;
+}
+
+#donate,
+#share {
+    width: 50%;
+    float: left;
+    margin-bottom: 50px;
+}
+
+#donate h2,
+#support h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+#paypal,
+#picpay {
+    margin-top: 20px;
+    text-align: center;
+    width: 50%;
+    float: left;
+}
+
+#donate p {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+#paypal form {
+    margin-top: 15px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+img.qrcode {
+    border: 2px solid #fff;
+    width: 132px;
+    margin-bottom: 5px;
+}
+
+p.picpayTitle {
+    text-transform: none !important;
+    font-family: nexaB;
+}
+
+mark.pic {
+    color: #21c25e;
+    background: none;
+}
+
+p.picpayText {
+    text-transform: none !important;
+    line-height: 16px;
 }
