@@ -237,11 +237,23 @@ a[name="apoie"] {
 #support {
     border-top: 2px solid #fff;
     background-color: #232323;
-    padding: 20px 0;
+    padding-top: 20px;
     color: #fff;
 }
 
-#supportTitle {
+#supportHead {
+    width: 60%;
+    float: left;
+}
+
+#share {
+    width: 40%;
+    float: left;
+    text-align: right;
+}
+
+#supportTitle,
+#support h2 {
     color: #f00;
     font-size: 17px;
     font-family: nexaB;
@@ -249,32 +261,34 @@ a[name="apoie"] {
     margin-bottom: 5px;
 }
 
+#support h2 {
+    color: #fff;
+}
+
 #supportSubtitle {
     font-size: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px dotted #ccc;
     margin-bottom: 10px;
 }
 
-#donate,
-#share {
-    width: 50%;
+#donate {
     float: left;
-    margin-bottom: 50px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-#donate h2,
-#support h2 {
+#donate h2 {
     text-align: center;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 17px;
     margin-bottom: 20px;
 }
 
 #paypal,
 #picpay {
     text-align: center;
-    width: 50%;
+    width: 25%;
     float: left;
 }
 
@@ -309,6 +323,7 @@ p.picpayTitle a {
 mark.pic {
     color: #21c25e;
     background: none;
+    font-weight: bold;
 }
 
 p.picpayText {
@@ -317,10 +332,26 @@ p.picpayText {
 }
 
 #picMensal {
-    width: 100%;
+    width: 50%;
     text-align: center;
-    margin-top: 10px;
-    border-top: 1px dotted #ccc;
     float: left;
-    padding-top: 10px;
+}
+
+#picCode {
+    margin-top: 10px;
+    width: 100%;
+    float: left;
+}
+
+footer {
+    background: #232323;
+    color: #fff;
+    clear: both;
+    border-top: 1px dotted #ccc;
+}
+
+#footer {
+    padding: 10px 0;
+    width: 850px;
+    margin: 0 auto;
 }
