@@ -268,11 +268,11 @@ a[name="apoie"] {
     text-align: center;
     text-transform: uppercase;
     font-size: 15px;
+    margin-bottom: 20px;
 }
 
 #paypal,
 #picpay {
-    margin-top: 20px;
     text-align: center;
     width: 50%;
     float: left;
