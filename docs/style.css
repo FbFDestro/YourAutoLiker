@@ -250,6 +250,7 @@ a[name="apoie"] {
     width: 40%;
     float: left;
     text-align: right;
+    text-align: center;
 }
 
 #supportTitle,
@@ -263,7 +264,6 @@ a[name="apoie"] {
 
 #support h2 {
     color: #fff;
-    text-align: center;
 }
 
 #supportSubtitle {
@@ -274,8 +274,7 @@ a[name="apoie"] {
 
 #donate {
     float: left;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin-top: 15px;
     text-align: center;
 }
 
@@ -283,13 +282,14 @@ a[name="apoie"] {
     text-align: center;
     text-transform: uppercase;
     font-size: 17px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #paypal,
-#picpay {
+#picpay,
+#picMensal {
     text-align: center;
-    width: 25%;
+    width: 33.333%;
     float: left;
 }
 
@@ -317,7 +317,6 @@ p.picpayTitle {
 }
 
 p.picpayTitle a {
-    /*     text-decoration: none; */
     color: #21c25e;
 }
 
@@ -330,12 +329,6 @@ mark.pic {
 p.picpayText {
     text-transform: none !important;
     line-height: 16px;
-}
-
-#picMensal {
-    width: 50%;
-    text-align: center;
-    float: left;
 }
 
 #picCode {
