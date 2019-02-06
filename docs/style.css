@@ -301,6 +301,11 @@ p.picpayTitle {
     font-family: nexaB;
 }
 
+p.picpayTitle a {
+    /*     text-decoration: none; */
+    color: #21c25e;
+}
+
 mark.pic {
     color: #21c25e;
     background: none;
@@ -309,4 +314,13 @@ mark.pic {
 p.picpayText {
     text-transform: none !important;
     line-height: 16px;
+}
+
+#picMensal {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    border-top: 1px dotted #ccc;
+    float: left;
+    padding-top: 10px;
 }
