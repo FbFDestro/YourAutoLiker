@@ -19,6 +19,10 @@ body {
     background-color: #232323;
 }
 
+[show="false"] {
+    display: none !important;
+}
+
 #install {
     margin: 0 auto;
     margin-top: 80px;

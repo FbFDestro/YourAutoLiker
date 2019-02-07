@@ -134,8 +134,22 @@ function reactOnVideoPage() {
 
 function isExtensionWebsite() {
     if (window.location.hostname == 'fbfdestro.github.io') { // if it is the extension website CHANGE 
-        console.log("raa");
         document.getElementById('installBtn').style.display = "none";
+
+        let menuConf = document.getElementsByClassName('menuConfBtn')[0];
+        let menuInstall = document.getElementsByClassName('menuInstallBtn')[0];
+
+        menuConf.setAttribute("show", "true");
+        menuInstall.setAttribute("show", "false");
+        let menuConfLink = menuConf.getElementsByTagName('a')[0];
+        menuConfLink.innerText = "Configurações";
+
+        menuConfLink.onclick = function () {
+            sendMessage({
+                type: 'openOptionsPage'
+            });
+        }
+
     }
 }
 
