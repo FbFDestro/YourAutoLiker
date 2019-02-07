@@ -49,10 +49,12 @@ class Page {
 
 let page = new Page();
 
+isExtensionWebsite();
 chrome.runtime.onMessage.addListener(getMessage);
 
 function getMessage(message, sender, sendResponse) {
 
+    console.log(message);
     if (message == 'pageUpdated') {
         reactOnVideoPage();
         console.log('message');
@@ -127,6 +129,13 @@ function reactOnVideoPage() {
     if (window.location.hostname == 'www.youtube.com' && window.location.pathname.startsWith('/watch')) {
         page.typeOfPage = '/watch';
         loadLists(getElementsOfVideo, true); // load lists and wait 2 second to get elements (true)
+    }
+}
+
+function isExtensionWebsite() {
+    if (window.location.hostname == 'fbfdestro.github.io') { // if it is the extension website CHANGE 
+        console.log("raa");
+        document.getElementById('installBtn').style.display = "none";
     }
 }
 
