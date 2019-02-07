@@ -332,7 +332,7 @@ p.picpayText {
 }
 
 #picCode {
-    margin-top: 10px;
+    margin: 10px 0;
     width: 100%;
     float: left;
 }
@@ -345,7 +345,37 @@ footer {
 }
 
 #footer {
-    padding: 10px 0;
+    padding: 20px 0;
     width: 850px;
     margin: 0 auto;
+}
+
+.footerImg {
+    position: relative;
+    height: 60px;
+    float: left;
+    width: 130px;
+    margin-bottom: 20px;
+}
+
+#footer img.fbfLogo {
+    width: 100px;
+}
+
+#footer img.github {
+    width: 48px;
+}
+
+#footer img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footerText {
+    text-align: center;
+    width: 590px;
+    float: left;
+    height: 60px;
+    line-height: 60px
 }
