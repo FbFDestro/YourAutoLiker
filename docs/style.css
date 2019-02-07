@@ -86,7 +86,7 @@ article {
 #messagePop {
     text-align: center;
     font-family: nexaB;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     width: 200px;
     background: #eee;
     border: 1px solid #ccc;
@@ -94,6 +94,10 @@ article {
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+#messagePop p {
+    margin-bottom: 12px;
 }
 
 #messagePop img.closeImg {
