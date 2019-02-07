@@ -83,6 +83,27 @@ article {
     margin: 0 auto;
 }
 
+#messagePop {
+    text-align: center;
+    font-family: nexaB;
+    padding: 20px;
+    width: 200px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 0 10px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#messagePop img.closeImg {
+    width: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
 .content {
     width: 850px;
     margin: 0 auto;
@@ -350,6 +371,7 @@ footer {
 
 #footer {
     padding: 20px 0;
+    height: 60px;
     width: 850px;
     margin: 0 auto;
 }

@@ -217,3 +217,49 @@ article {
     margin-bottom: 15px;
     font-size: 14px;
 }
+
+footer {
+    width: 100%;
+    background: #232323;
+    color: #fff;
+    clear: both;
+    border-top: 1px dotted #ccc;
+}
+
+#footer {
+    padding: 20px 0;
+    height: 60px;
+    width: 850px;
+    margin: 0 auto;
+}
+
+.footerImg {
+    position: relative;
+    height: 60px;
+    float: left;
+    width: 130px;
+    margin-bottom: 20px;
+}
+
+#footer img.fbfLogo {
+    width: 100px;
+}
+
+#footer img.github {
+    width: 48px;
+}
+
+#footer img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footerText {
+    text-align: center;
+    width: 590px;
+    float: left;
+    height: 60px;
+    font-size: 15px;
+    line-height: 60px
+}
