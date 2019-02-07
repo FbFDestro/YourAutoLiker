@@ -8,5 +8,8 @@ if (hash == '#thanks' || hash == '#share') {
     } else {
         document.querySelector('#messagePop > p.share').setAttribute('show', 'true');
     }
+}
 
+document.querySelector('#messagePop > img.closeImg').onclick = function () {
+    document.getElementById('messagePop').setAttribute('show', 'false');
 }
