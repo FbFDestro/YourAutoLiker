@@ -3,6 +3,7 @@
   "name": "Your Auto Liker",
   "description": "Automatically like or dislike Youtube videos from a selected list of channels",
   "version": "0.1",
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [{
     "matches": [
       "<all_urls>"
