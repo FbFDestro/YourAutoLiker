@@ -28,9 +28,16 @@ _gaq.push(['_trackPageview']);
 })();
 
 function trackButtonClick(e) {
-    /*     ga('send', 'event', e.target.className, 'clicked'); */
-    _gaq.push(['_trackEvent', e.target.className, 'clicked']);
-    console.log(' class ' + e.target.className);
+
+    let className;
+    if (e.target.className == 'installBtn') {
+        className = e.target.className;
+    } else {
+        className = e.target.parentNode.className;
+    }
+
+    _gaq.push(['_trackEvent', className, 'clicked']);
+    console.log(' class ' + className);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
