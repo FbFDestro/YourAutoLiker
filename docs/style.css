@@ -409,3 +409,9 @@ footer {
     height: 60px;
     line-height: 60px
 }
+
+.footerText a {
+    color: #f00;
+    text-decoration: none;
+    font-weight: bold;
+}
