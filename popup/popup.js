@@ -22,20 +22,34 @@ class Page {
     }
 
     showElement(element) {
-        element.setAttribute('show', "true");
+        element.setAttribute('show', 'true');
+    }
+
+    startStateClass(element) {
+        element.classList.add('start');
+        element.classList.remove('stop');
+    }
+
+    stopStateClass(element) {
+        element.classList.add('stop');
+        element.classList.remove('start');
     }
 
     hideElement(element) {
-        element.setAttribute('show', "false");
+        element.setAttribute('show', 'false');
     }
 
     setSubscribeBtnNotSubscribed() {
-        this.subscribeBtn.setAttribute('subscribed', "false");
-        this.subscribeBtn.getElementsByTagName('a')[0].innerText = 'Inscrever-se';
+        this.subscribeBtn.setAttribute('subscribed', 'false');
+        let btnLink = this.subscribeBtn.getElementsByTagName('a')[0];
+        btnLink.innerText = 'Inscrever-se';
+        this.startStateClass(btnLink)
     }
     setSubscribeBtnSubscribed() {
-        this.subscribeBtn.setAttribute('subscribed', "true");
-        this.subscribeBtn.getElementsByTagName('a')[0].innerText = 'Inscrito';
+        this.subscribeBtn.setAttribute('subscribed', 'true');
+        let btnLink = this.subscribeBtn.getElementsByTagName('a')[0];
+        btnLink.innerText = 'Inscrito';
+        this.stopStateClass(btnLink);
     }
 
     updateData(data) {
@@ -66,26 +80,33 @@ class Page {
     }
 
     setTextAndState(button, text, state) {
-        button.getElementsByTagName('a')[0].innerText = text;
+        let btnLink = button.getElementsByTagName('a')[0];
+        btnLink.innerText = text;
+        if (state == 'false') {
+            this.startStateClass(btnLink);
+        } else {
+            this.stopStateClass(btnLink);
+        }
         button.setAttribute('alreadySubscribed', state);
         this.showElement(button);
     }
 
     showStartAlwaysBoth() {
-        this.setTextAndState(this.alwaysLikeBtn, 'Sempre gostar desse canal', "false");
+        this.setTextAndState(this.alwaysLikeBtn, 'Sempre gostar desse canal', 'false');
         this.showElement(this.alwaysLikeBtn);
+        this.alwaysLikeBtn.getElementsByTagName('a')[0].classList.add('start');
 
-        this.setTextAndState(this.alwaysDislikeBtn, 'Sempre não gostar desse canal', "false");
+        this.setTextAndState(this.alwaysDislikeBtn, 'Sempre não gostar desse canal', 'false');
         this.showElement(this.alwaysDislikeBtn);
     }
 
     showStopAlwaysLike() {
-        this.setTextAndState(this.alwaysLikeBtn, 'Parar de sempre gostar desse canal', "true");
+        this.setTextAndState(this.alwaysLikeBtn, 'Parar de sempre gostar desse canal', 'true');
         this.hideElement(this.alwaysDislikeBtn);
     }
 
     showStopAlwaysDislike() {
-        this.setTextAndState(this.alwaysDislikeBtn, 'Parar de sempre não gostar desse canal', "true");
+        this.setTextAndState(this.alwaysDislikeBtn, 'Parar de sempre não gostar desse canal', 'true');
         this.hideElement(this.alwaysLikeBtn);
     }
 
@@ -97,35 +118,43 @@ class Page {
 
 function getWhenReact(thePage) {
     chrome.storage.sync.get(['whenReactInPercent'], function (result) {
-        thePage.reactingInfo.innerText = "Reagindo em " + result.whenReactInPercent * 100 + "% do video";
+        thePage.reactingInfo.innerText = 'Reagindo em ' + result.whenReactInPercent * 100 + '% do video';
         thePage.showElement(thePage.reactingInfo);
     });
 }
 
 function addButtonsOnClickEvent(thePage) {
     thePage.alwaysLikeBtn.onclick = function () {
-        if (thePage.alwaysLikeBtn.getAttribute('alreadySubscribed') == "false") { // start always like
+        if (thePage.alwaysLikeBtn.getAttribute('alreadySubscribed') == 'false') { // start always like
             sendMessage('startAlwaysLike');
+            trackEvent(thePage.name.textContent, 'startAlwaysLike');
             thePage.showStopAlwaysLike();
         } else { // stop always like
             sendMessage('stopAlwaysLike');
+            trackEvent(thePage.name.textContent, 'stopAlwaysLike');
             thePage.showStartAlwaysBoth();
         }
     }
     thePage.alwaysDislikeBtn.onclick = function () {
-        if (thePage.alwaysDislikeBtn.getAttribute('alreadySubscribed') == "false") { // start always dislike
+        if (thePage.alwaysDislikeBtn.getAttribute('alreadySubscribed') == 'false') { // start always dislike
             sendMessage('startAlwaysDislike');
+            trackEvent(thePage.name.textContent, 'startAlwaysDislike');
             thePage.showStopAlwaysDislike();
         } else { // stop always dislike
             sendMessage('stopAlwaysDislike');
+            trackEvent(thePage.name.textContent, 'stopAlwaysDislike');
             thePage.showStartAlwaysBoth();
         }
     }
     thePage.subscribeBtn.onclick = function () {
         sendMessage('clickSubscribeBtn');
         if (thePage.subscribeBtn.getAttribute('subscribed') == 'false') {
+            trackEvent(thePage.name.textContent, 'subscribe');
             thePage.setSubscribeBtnSubscribed();
         } // else is not needed because to confirm subscription is needed to confirm and popup will close anyway
+        else {
+            trackEvent(thePage.name.textContent, 'unsubscribe');
+        }
     }
 }
 
@@ -201,7 +230,12 @@ _gaq.push(['_trackPageview']);
 
 function trackButtonClick(e) {
     _gaq.push(['_trackEvent', e.target.className, 'clicked']);
-    console.log("id " + e.target.className);
+    console.log(e.target);
+    console.log(' class ' + e.target.className);
+}
+
+function trackEvent(name, event) {
+    _gaq.push(['_trackEvent', name, event]);
 }
 
 document.addEventListener('DOMContentLoaded', function () {

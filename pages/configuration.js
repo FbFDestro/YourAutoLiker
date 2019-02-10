@@ -119,6 +119,11 @@ function saveData() {
         chrome.storage.sync.set({
             'whenReactInPercent': page.slider.value / 100
         }, function () { // first save when react
+
+            if (page.sliderStartValue != page.slider.value) { // when react has been changed
+                trackEvent(page.slider.value, 'whenReact');
+            }
+
             changeChannelsSet();
             modified = false;
             page.setNoChanges();
@@ -137,8 +142,14 @@ function findRemovals(content, set, save) {
         let icon = btn.getElementsByTagName('img')[0].src;
         if (icon.endsWith('add.png')) { // has removed
             let name = btn.getElementsByTagName('p')[0].textContent;
-            if (set !== undefined) // posso tirar dps
+            if (set !== undefined) {
+                if (save === saveLikeSet) { // is deleting of alwaysLike
+                    trackEvent(name, 'stopAlwaysLike');
+                } else {
+                    trackEvent(name, 'stopAlwaysDislike');
+                }
                 set.delete(name);
+            }
         }
     }
     console.log(set);
@@ -196,3 +207,7 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(ga, s);
 })();
+
+function trackEvent(name, event) {
+    _gaq.push(['_trackEvent', name, event]);
+}
