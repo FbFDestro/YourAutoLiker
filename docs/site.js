@@ -15,7 +15,7 @@ document.querySelector('#messagePop > img.closeImg').onclick = function () {
 }
 
 function trackButtonClick(e) {
-    ga('send', 'event', e.target.className, 'clicked', );
+    ga('send', 'event', e.target.className, 'clicked');
     /*     _gaq.push(['_trackEvent', e.target.className, 'clicked']); */
     console.log(' class ' + e.target.className);
 }
