@@ -121,7 +121,8 @@ function saveData() {
         }, function () { // first save when react
 
             if (page.sliderStartValue != page.slider.value) { // when react has been changed
-                trackEvent(page.slider.value, 'whenReact');
+                /*                 trackEvent(page.slider.value, 'whenReact'); */
+                _gaq.push(['_trackEvent', 'whenToReact', 'changeWhenReact', page.slider.value, parseInt(page.slider.value)]);
             }
 
             changeChannelsSet();
