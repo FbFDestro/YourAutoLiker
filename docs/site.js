@@ -46,4 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener('click', trackButtonClick);
     }
     document.getElementById('installBtn').addEventListener('click', trackButtonClick);
+    let donatePaypal = document.querySelector('#paypal > form > input[type="image"]:nth-child(3)');
+    donatePaypal.parentNode.classList.add('donatePaypal');
+    donatePaypal.addEventListener('click', trackButtonClick);
 });
