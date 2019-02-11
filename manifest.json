@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Your Auto Liker",
-  "description": "Automatically like or dislike Youtube videos from a selected list of channels",
+  "description": "Nunca mais esqueça de dar like ou dislike nos vídeos que assiste no Youtube! Dê likes e dislikes automaticamente.",
   "version": "0.1",
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [{
@@ -25,7 +25,7 @@
   },
   "browser_action": {
     "default_icon": "imgs/icon.png",
-    "default_title": "Reaga a esse vídeo/canal",
+    "default_title": "Your Auto Liker - Reaga a esse canal",
     "default_popup": "popup/popup.html"
   },
   "permissions": [
