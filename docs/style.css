@@ -16,7 +16,7 @@
 
 body {
     font-family: NexaL;
-    background-color: #232323;
+    background-color: #000;
 }
 
 [show="false"] {
@@ -210,7 +210,6 @@ a[name="comoUsar"] {
 
 #howToUseConfiguration {
     background-color: #fff;
-    /*     height: 360px; */
     padding: 20px 0;
     border-top: 1px solid #ccc;
 }
@@ -263,9 +262,13 @@ a[name="apoie"] {
     margin-top: -100px;
 }
 
+#howToUseVideo {
+    text-align: center;
+    padding: 20px 0;
+}
+
 #support {
     border-top: 2px solid #fff;
-    background-color: #232323;
     padding-top: 20px;
     color: #fff;
 }
@@ -364,54 +367,4 @@ p.picpayText {
     margin: 10px 0;
     width: 100%;
     float: left;
-}
-
-footer {
-    background: #232323;
-    color: #fff;
-    clear: both;
-    border-top: 1px dotted #ccc;
-}
-
-#footer {
-    padding: 20px 0;
-    height: 60px;
-    width: 850px;
-    margin: 0 auto;
-}
-
-.footerImg {
-    position: relative;
-    height: 60px;
-    float: left;
-    width: 130px;
-    margin-bottom: 20px;
-}
-
-#footer img.fbfLogo {
-    width: 100px;
-}
-
-#footer img.github {
-    width: 48px;
-}
-
-#footer img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.footerText {
-    text-align: center;
-    width: 590px;
-    float: left;
-    height: 60px;
-    line-height: 60px
-}
-
-.footerText a {
-    color: #f00;
-    text-decoration: none;
-    font-weight: bold;
 }

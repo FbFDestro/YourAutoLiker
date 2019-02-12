@@ -1,5 +1,5 @@
 header {
-    background-color: #232323;
+    background-color: #000;
     width: 100%;
 }
 
@@ -7,7 +7,7 @@ header {
     position: fixed;
     z-index: 1;
     top: 0;
-    background: #232323;
+    background: #000;
     border-bottom: 2px solid #f00;
     width: 100%;
 }
@@ -84,4 +84,56 @@ ul#menu {
 
 #menu li a.active {
     background-color: #303030;
+}
+
+footer {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    clear: both;
+    border-top: 1px dotted #ccc;
+}
+
+#footer {
+    padding: 20px 0;
+    height: 60px;
+    width: 850px;
+    margin: 0 auto;
+}
+
+.footerImg {
+    position: relative;
+    height: 60px;
+    float: left;
+    width: 130px;
+    margin-bottom: 20px;
+}
+
+#footer img.fbfLogo {
+    width: 100px;
+}
+
+#footer img.github {
+    width: 48px;
+}
+
+#footer img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footerText {
+    text-align: center;
+    width: 590px;
+    float: left;
+    height: 60px;
+    font-size: 15px;
+    line-height: 60px
+}
+
+.footerText a {
+    color: #f00;
+    text-decoration: none;
+    font-weight: bold;
 }
