@@ -139,7 +139,7 @@ function changeChannelsSet() {
 
 function findRemovals(content, set, save) {
     let buttons = content.getElementsByClassName('btn');
-    for (btn of buttons) {
+    for (let btn of buttons) {
         let icon = btn.getElementsByTagName('img')[0].src;
         if (icon.endsWith('add.png')) { // has removed
             let name = btn.getElementsByTagName('p')[0].textContent;
@@ -183,11 +183,15 @@ function saveDislikeSet() {
 
 function removeButtons(content) {
     let buttons = content.getElementsByClassName('btn');
-    for (btn of buttons) {
+    let remove = [];
+    for (let btn of buttons) {
         let icon = btn.getElementsByTagName('img')[0].src;
         if (icon.endsWith('add.png')) { // has removed
-            btn.parentNode.removeChild(btn);
+             remove.push(btn);
         }
+    }
+    for(let btn of remove){
+        btn.parentNode.removeChild(btn);
     }
 }
 
