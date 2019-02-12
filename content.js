@@ -50,6 +50,7 @@ class Page {
 let page = new Page();
 
 isExtensionWebsite();
+
 chrome.runtime.onMessage.addListener(getMessage);
 
 function getMessage(message, sender, sendResponse) {
@@ -133,7 +134,7 @@ function reactOnVideoPage() {
 }
 
 function isExtensionWebsite() {
-    if (window.location.hostname == 'fbfdestro.github.io') { // if it is the extension website CHANGE 
+    if (window.location.hostname == 'yourautoliker.com') { // if it is the extension website CHANGE 
         document.getElementById('installBtn').style.display = "none";
 
         let menuConf = document.getElementsByClassName('menuConfBtn')[0];

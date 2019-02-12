@@ -172,9 +172,6 @@ function sendMessage(message) {
 let page = new Page(); // create a page
 sendMessage('loadingPopup'); // send message to content script
 
-/* page.showLikeDislikeButtons({alwaysLike: false,alwaysDislike:true});
-page.addButtonsOnClickEvent(); */
-
 chrome.runtime.onMessage.addListener(reciveMessage);
 
 function reciveMessage(message, sender, sendResponse) {
@@ -188,13 +185,6 @@ function reciveMessage(message, sender, sendResponse) {
             page.hideElement(page.supportBtn);
             page.hideElement(page.loadingIcon);
             page.showElement(page.divideLine);
-
-            /*     page.updateData({
-                    name: 'Fabio',
-                    image: 'https://yt3.ggpht.com/a-/AAuE7mAqPxCRniHNABskSif7Fsc2ifnv5ofVYt06zg=s48-mo-c-c0xffffffff-rj-k-no',
-                    isSubscribed: true,
-                    pageType: '/watch'
-                }); */
             page.updateData(message.data);
             page.showLikeDislikeButtons(message.statusLikeDislike);
             page.addButtonsOnClickEvent();
