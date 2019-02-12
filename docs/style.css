@@ -442,3 +442,23 @@ p.picpayText {
     padding: 12px 18px;
     border: 1px solid #ccc;
 }
+
+#notFound {
+    background: #fff;
+}
+
+#notFound .content {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#notFound p {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+#notFound p.erro {
+    text-transform: none;
+    margin-top: 30px;
+    font-size: 30px;
+}
