@@ -120,7 +120,7 @@ function sendMessageWithoutInfo() {
 // identify when youtube page finish to load
 try {
     document.getElementsByTagName('body')[0].addEventListener('yt-navigate-finish', reactOnVideoPage);
-} catch {
+} catch (e) {
     console.warn('No body element');
 }
 
