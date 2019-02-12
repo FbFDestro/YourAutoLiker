@@ -79,7 +79,6 @@ body {
 
 article {
     width: 100%;
-    min-height: 1000px;
     margin: 0 auto;
 }
 
@@ -376,7 +375,7 @@ p.picpayText {
 }
 
 #saibaMais .content {
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 #saibaMais p {
@@ -433,6 +432,10 @@ p.picpayText {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.panel a {
+    color: #f00;
 }
 
 .panel.open {

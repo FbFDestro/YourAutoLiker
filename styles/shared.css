@@ -74,7 +74,7 @@ ul#menu {
 }
 
 #menu li a:hover {
-    background-color: #232323;
+    background-color: #121212;
     transition: 0.6s;
 }
 
@@ -83,7 +83,7 @@ ul#menu {
 }
 
 #menu li a.active {
-    background-color: #232323;
+    background-color: #121212;
 }
 
 footer {
