@@ -121,7 +121,6 @@ function saveData() {
         }, function () { // first save when react
 
             if (page.sliderStartValue != page.slider.value) { // when react has been changed
-                /*                 trackEvent(page.slider.value, 'whenReact'); */
                 _gaq.push(['_trackEvent', 'whenToReact', 'changeWhenReact', page.slider.value, parseInt(page.slider.value)]);
             }
 
@@ -187,10 +186,10 @@ function removeButtons(content) {
     for (let btn of buttons) {
         let icon = btn.getElementsByTagName('img')[0].src;
         if (icon.endsWith('add.png')) { // has removed
-             remove.push(btn);
+            remove.push(btn);
         }
     }
-    for(let btn of remove){
+    for (let btn of remove) {
         btn.parentNode.removeChild(btn);
     }
 }

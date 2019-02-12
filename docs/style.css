@@ -267,8 +267,10 @@ a[name="apoie"] {
     padding: 20px 0;
 }
 
+
+
 #support {
-    border-top: 2px solid #fff;
+    border-top: 1px dotted #ccc;
     padding-top: 20px;
     color: #fff;
 }
@@ -367,4 +369,73 @@ p.picpayText {
     margin: 10px 0;
     width: 100%;
     float: left;
+}
+
+#saibaMais {
+    background: #fff;
+}
+
+#saibaMais .content {
+    padding: 20px 0;
+}
+
+#saibaMais p {
+    line-height: 20px;
+    text-align: justify;
+    padding: 5px;
+    text-indent: 30px;
+    color: #000;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+#saibaMais h1 {
+    margin: 10px 20px;
+}
+
+.accordion {
+    background-color: #eee;
+    border: 1px solid #ccc !important;
+    border-left: 0;
+    border-right: 0;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-family: nexaB;
+    outline: none;
+    font-size: 16px;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.panel.open {
+    padding: 12px 18px;
+    border: 1px solid #ccc;
 }
