@@ -135,7 +135,10 @@ function reactOnVideoPage() {
 
 function isExtensionWebsite() {
     if (window.location.hostname == 'yourautoliker.com') { // if it is the extension website CHANGE 
-        document.getElementById('installBtn').style.display = "none";
+
+        if (document.getElementById('installBtn') !== null) {
+            document.getElementById('installBtn').style.display = "none";
+        }
 
         let menuConf = document.getElementsByClassName('menuConfBtn')[0];
         let menuInstall = document.getElementsByClassName('menuInstallBtn')[0];
