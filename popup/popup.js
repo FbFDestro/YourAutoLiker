@@ -17,6 +17,23 @@ class Page {
             chrome.runtime.openOptionsPage();
         }
 
+        this.name.onclick = function () {
+            if (this.classList.contains('linkSite')) {
+                chrome.tabs.create({
+                    url: 'http://yourautoliker.com'
+                });
+            }
+        }
+
+        this.image.onclick = function () {
+            if (this.classList.contains('linkSite')) {
+                chrome.tabs.create({
+                    url: 'http://yourautoliker.com'
+                });
+            }
+        }
+
+
         this.refreshBtn.onclick = refreshed;
 
     }
@@ -55,7 +72,9 @@ class Page {
     updateData(data) {
 
         this.name.innerText = data.name;
+        this.name.classList.remove('linkSite');
         this.image.src = data.image;
+        this.image.classList.remove('linkSite');
 
         this.showElement(this.subscribeBtn);
         if (!data.isSubscribed) {

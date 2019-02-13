@@ -28,6 +28,10 @@ a:hover {
 	transition: 0.8s;
 }
 
+.linkSite {
+	cursor: pointer;
+}
+
 hr {
 	display: block;
 	height: 1px;
