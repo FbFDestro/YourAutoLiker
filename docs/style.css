@@ -300,9 +300,13 @@ a[name="comoUsar"] {
     height: 240px;
 }
 
+a[name="use"] {
+    position: absolute;
+    margin-top: -80px;
+}
+
 a[name="apoie"] {
     width: 100px;
-    /*     border: 1px solid; */
     position: absolute;
     margin-top: -100px;
 }

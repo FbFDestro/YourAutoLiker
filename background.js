@@ -23,6 +23,6 @@ chrome.runtime.onInstalled.addListener(function (object) {
 		'whenReactInPercent': 0.80
 	});
 	chrome.tabs.create({
-		url: 'http://yourautoliker.com'
+		url: 'http://yourautoliker.com/#use'
 	});
 });
