@@ -28,6 +28,7 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
 [Historia da extensão](#historia-da-extensão)
 
 [Sobre mim](#sobre-mim)
+
 [O Código](#o-codigo)
 
 
