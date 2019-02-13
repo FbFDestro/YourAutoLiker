@@ -3,6 +3,8 @@
 
 Your Auto Liker é uma extensão de navegador que permite que os usuários reajam automaticamente aos videos que assiste no Youtube. Nunca mais esqueça de dar like ou dislike nos vídeos que assiste! Apoie seus canais favoritos curtindo automaticamente seus vídeos.
 
+## [Instalar a extensão](http://yourautoliker.com)
+
 >Browser extension that automatically like or dislike youtube videos from selected channels. When browsing on Youtube it is possible to add channels to the lists "Always like videos of this channel" or "Always dislike videos of this channel". So, when you watch videos from this specifics channels, the extensions automaticlly likes or dislike the video at some specific momment.
 
 ## Menu
@@ -11,6 +13,7 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
 [Historia da extensão](#historia-da-extensão)
 
 [Sobre mim](#sobre-mim)
+
 
 <table>
   <tr>
@@ -22,6 +25,8 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
     </td>
   </tr>
 </table>
+
+[Assistir vídeo da extensão em funcionamento](https://www.youtube.com/watch?v=Lik7DiEgg0M)
 
 # Sobre a extensão
 
