@@ -212,8 +212,36 @@ article {
     cursor: default;
 }
 
-.info {
-    text-align: center;
-    margin-bottom: 15px;
+
+#contato {
+    padding: 12px 18px;
+    border: 1px solid #ccc;
+    clear: both;
+    margin: 25px 8px;
+    border-radius: 15px;
+}
+
+#contato p {
+    line-height: 20px;
+    text-align: justify;
+    padding: 5px;
+    text-indent: 30px;
+    color: #000;
+    font-family: Arial;
     font-size: 14px;
+}
+
+#contato p a {
+    color: #f00;
+}
+
+.info {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 5px;
+}
+
+.info p {
+    font-family: nexaL !important;
+    font-size: 15px !important;
 }
