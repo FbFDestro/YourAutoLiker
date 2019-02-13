@@ -33,6 +33,12 @@ class Page {
             }
         }
 
+        this.supportBtn.onclick = function () {
+            chrome.tabs.create({
+                url: 'http://yourautoliker.com/#apoie'
+            });
+        }
+
 
         this.refreshBtn.onclick = refreshed;
 
