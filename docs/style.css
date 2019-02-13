@@ -127,9 +127,7 @@ a[name="comoUsar"] {
 
 #howToUsePopup {
     background-color: #fff;
-    height: 380px;
 }
-
 
 #bar {
     padding-top: 20px;
@@ -185,6 +183,7 @@ a[name="comoUsar"] {
 
 #popup {
     margin-top: 10px;
+    padding-bottom: 25px;
 }
 
 #popup-text {
@@ -196,6 +195,7 @@ a[name="comoUsar"] {
 #popup img {
     float: right;
     border: solid 1px #ccc;
+    margin-bottom: 25px;
 }
 
 #horizontalImg {
@@ -211,6 +211,35 @@ a[name="comoUsar"] {
     margin: 0 auto;
     height: 90px;
     background: #eee;
+}
+
+.auto-liker-info {
+    width: 100%;
+    clear: both;
+    padding: 15px 0;
+    border: 1px solid #cccc;
+    background: #eee;
+    border-radius: 15px;
+}
+
+.auto-liker-info.spaced {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.auto-liker-info h1 {
+    padding-left: 16px;
+    font-size: 16px;
+    font-family: nexaB;
+}
+
+.auto-liker-info p {
+    line-height: 20px;
+    text-align: justify;
+    padding: 5px 16px;
+    color: #000;
+    font-family: Arial;
+    font-size: 14px;
 }
 
 #howToUseConfiguration {
@@ -273,10 +302,9 @@ a[name="apoie"] {
 }
 
 
-
 #support {
     border-top: 1px dotted #ccc;
-    padding-top: 20px;
+    padding-top: 40px;
     color: #fff;
 }
 
@@ -313,7 +341,7 @@ a[name="apoie"] {
 
 #donate {
     float: left;
-    margin-top: 15px;
+    margin: 15px 0;
     text-align: center;
 }
 
