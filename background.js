@@ -26,3 +26,5 @@ chrome.runtime.onInstalled.addListener(function (object) {
 		url: 'http://yourautoliker.com/#use'
 	});
 });
+
+chrome.runtime.setUninstallURL('http://yourautoliker.com/saiba-mais#contato');

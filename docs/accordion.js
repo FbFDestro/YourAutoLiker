@@ -25,4 +25,11 @@ function closeAll(atual) {
     }
 }
 
-acc[0].click();
+
+if (window.location.hash == '#contato') {
+    acc[acc.length - 1].click();
+    document.getElementById('messagePop').setAttribute('show', 'true');
+
+} else {
+    acc[0].click();
+}
