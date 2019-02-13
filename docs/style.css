@@ -167,18 +167,26 @@ a[name="comoUsar"] {
 
 #popupInfo {
     width: 100%;
-    font-size: 15px;
     float: left;
     margin: 2px 0px 15px 0px;
 }
 
+#popupInfo h3 {
+    font-family: nexaL;
+    font-weight: inherit;
+    font-size: 15px;
+}
+
 #search-info {
     float: left;
+    margin-top: 15px;
+    margin-right: 18px;
+}
+
+#search-info h1 {
     text-transform: uppercase;
     font-size: 17px;
     font-family: nexaB;
-    margin-top: 15px;
-    margin-right: 18px;
 }
 
 #popup {
@@ -214,7 +222,7 @@ a[name="comoUsar"] {
 }
 
 .auto-liker-info {
-    width: 100%;
+    width: 850px;
     clear: both;
     padding: 15px 0;
     border: 1px solid #cccc;
@@ -227,7 +235,7 @@ a[name="comoUsar"] {
     margin-bottom: 10px;
 }
 
-.auto-liker-info h1 {
+.auto-liker-info h2 {
     padding-left: 16px;
     font-size: 16px;
     font-family: nexaB;
@@ -255,7 +263,9 @@ a[name="comoUsar"] {
     margin-bottom: 5px;
 }
 
-#configurationSubtitle {
+#configurationSubtitle h3 {
+    font-family: nexaL;
+    font-weight: inherit;
     font-size: 15px;
 }
 
