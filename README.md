@@ -1,7 +1,26 @@
 # [Your Auto Liker](http://yourautoliker.com)
+
+
 Your Auto Liker é uma extensão de navegador que permite que os usuários reajam automaticamente aos videos que assiste no Youtube. Nunca mais esqueça de dar like ou dislike nos vídeos que assiste! Apoie seus canais favoritos curtindo automaticamente seus vídeos.
 
->Browser extension that automatically like or dislike youtube videos from selected channels. When browsing on Youtube it is possible to add channels to the lists "Always like videos of this channel" or "Always dislike videos of this channel". So, when you whatch videos from this specifics channels, the extensions automaticlly likes or dislike the video at some specific momment.
+## [Instalar a extensão](http://yourautoliker.com)
+
+>Browser extension that automatically like or dislike youtube videos from selected channels. When browsing on Youtube it is possible to add channels to the lists "Always like videos of this channel" or "Always dislike videos of this channel". So, when you watch videos from this specifics channels, the extensions automaticlly likes or dislike the video at some specific momment.
+
+
+<table>
+  <tr>
+    <td>
+      <a href="http://yourautoliker.com"><img src="http://yourautoliker.com/files/card1.jpg" /></a>
+    </td>
+      <td>
+      <a href="http://yourautoliker.com"><img src="http://yourautoliker.com/files/card2.jpg" /></a>
+    </td>
+  </tr>
+</table>
+
+[Assistir vídeo da extensão em funcionamento](https://www.youtube.com/watch?v=Lik7DiEgg0M)
+
 
 ## Menu
 [Sobre a extensão](#sobre-a-extensão)
@@ -10,7 +29,11 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
 
 [Sobre mim](#sobre-mim)
 
-# Sobre a extensão
+[O Código](#o-codigo)
+
+
+
+## Sobre a extensão
 
 Your Auto Liker é uma extensão para navegador (por enquanto apenas para Google Chrome) que permite que usuários criem seleções de canais que deseja sempre gostar ou não gostar em vídeos que assiste no Youtube.
 
@@ -48,3 +71,9 @@ Minha história com tecnologia começou desde pequeno (10 anos de idade), quando
 
 O que começou com um joguinho, evoluiu para um antigo blog criado com o foco em tecnologia, que desencadeou meu interesse em cursar um curso técnico em informática que confirmou o meu interesse em computação e me trouxe ao presente em que curso Ciências de Computação na Universidade de São Paulo e desenvolvi uma extensão para dar likes automáticos no Youtube e eu espero que goste!
 
+
+## O Código
+
+Como eu já mencionei, esse foi meu primeiro projeto real utilizando Javascript e também a minha primeira extensão. Dei o meu melhor para fazer um código legível e organizado, apesar da falta de experiência na linguagem, o que pode ter acarretado em soluções pouco eficientes em algumas partes.
+
+De qualquer forma, você pode dar uma olhada no meu GitHub e ter acesso ao código todo da extensão e enviar melhorias e sugestões caso queira.
