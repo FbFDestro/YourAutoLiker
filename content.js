@@ -118,10 +118,11 @@ function sendMessageWithoutInfo() {
 
 
 // identify when youtube page finish to load
+
 try {
     document.getElementsByTagName('body')[0].addEventListener('yt-navigate-finish', reactOnVideoPage);
 } catch (e) {
-    console.warn('No body element');
+    console.log('No body element');
 }
 
 function reactOnVideoPage() {
@@ -136,23 +137,28 @@ function reactOnVideoPage() {
 function isExtensionWebsite() {
     if (window.location.hostname == 'yourautoliker.com') { // if it is the extension website CHANGE 
 
-        if (document.getElementById('installBtn') !== null) {
-            document.getElementById('installBtn').style.display = "none";
+        try {
+
+            document.getElementById('installBtn').setAttribute("show", "false");
+
+            let menuConf = document.getElementsByClassName('menuConfBtn')[0];
+            let menuInstall = document.getElementsByClassName('menuInstallBtn')[0];
+
+            menuConf.setAttribute("show", "true");
+            menuInstall.setAttribute("show", "false");
+            let menuConfLink = menuConf.getElementsByTagName('a')[0];
+            menuConfLink.innerText = "Configurações";
+
+            menuConfLink.onclick = function () {
+                sendMessage({
+                    type: 'openOptionsPage'
+                });
+            }
+
+        } catch (e) {
+            console.log('no elements found on site');
         }
 
-        let menuConf = document.getElementsByClassName('menuConfBtn')[0];
-        let menuInstall = document.getElementsByClassName('menuInstallBtn')[0];
-
-        menuConf.setAttribute("show", "true");
-        menuInstall.setAttribute("show", "false");
-        let menuConfLink = menuConf.getElementsByTagName('a')[0];
-        menuConfLink.innerText = "Configurações";
-
-        menuConfLink.onclick = function () {
-            sendMessage({
-                type: 'openOptionsPage'
-            });
-        }
 
     }
 }

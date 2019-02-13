@@ -13,3 +13,8 @@ if (hash == '#thanks' || hash == '#share') {
 document.querySelector('#messagePop > img.closeImg').onclick = function () {
     document.getElementById('messagePop').setAttribute('show', 'false');
 }
+
+if (!window.chrome) {
+    document.getElementById('installBtn').setAttribute("show", "false");
+    document.getElementById('noChrome').setAttribute("show", "true");
+}
