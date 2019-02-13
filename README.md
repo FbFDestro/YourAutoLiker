@@ -11,10 +11,10 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
 <table>
   <tr>
     <td>
-      <img src="http://yourautoliker.com/files/card1.jpg" />
+      <a href="http://yourautoliker.com"><img src="http://yourautoliker.com/files/card1.jpg" /></a>
     </td>
       <td>
-      <img src="http://yourautoliker.com/files/card2.jpg" />
+      <a href="http://yourautoliker.com"><img src="http://yourautoliker.com/files/card2.jpg" /></a>
     </td>
   </tr>
 </table>
