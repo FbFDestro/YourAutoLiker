@@ -20,7 +20,6 @@ if (!window.chrome) {
 }
 
 let menuMobile = document.getElementById("menuMobileOpen");
-
 menuMobile.onclick = function () {
     let menuIcon = this.innerText;
     let nav = document.getElementsByTagName("nav")[0];
@@ -33,3 +32,17 @@ menuMobile.onclick = function () {
     }
 
 };
+
+function menuReact(e) {
+    let menuIcon = menuMobile.innerText;
+    if (menuIcon == "☰ ➖") {
+        let nav = document.getElementsByTagName("nav")[0];
+        nav.classList.add('hideMobile');
+        menuMobile.innerText = "☰ ＋";
+    }
+}
+
+let menu = document.getElementById('menu');
+for (item of menu.getElementsByTagName('li')) {
+    item.addEventListener('click', menuReact);
+}
