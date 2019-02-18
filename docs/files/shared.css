@@ -137,3 +137,78 @@ footer {
     text-decoration: none;
     font-weight: bold;
 }
+
+#menuMobileOpen {
+    display: none;
+}
+
+
+@media only screen and (max-width: 920px) {
+
+    #header-content {
+        width: 90% !important;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    #logo {
+        position: relative;
+        width: 90% !important;
+        margin: 0 auto;
+        top: initial;
+        transform: none;
+    }
+
+    #logo img {
+        width: 100% !important;
+        max-width: 320px;
+    }
+
+    #menuMobileOpen {
+        cursor: pointer;
+        display: block;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        font-size: 20px;
+        transform: translateY(-50%);
+        right: 5px;
+    }
+
+    .hideMobile {
+        display: none;
+    }
+
+    nav {
+        position: static;
+        right: initial;
+        top: initial;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #fff;
+        transform: none;
+        width: 100%;
+    }
+
+    #menu li {
+        float: none;
+    }
+
+    #footer {
+        width: 90% !important;
+    }
+
+    .footerImg {
+        width: 50%;
+        text-align: center;
+    }
+
+    .footerText {
+        width: 100%;
+        height: auto;
+        line-height: normal;
+        padding-top: 10px;
+        margin-bottom: 30px;
+    }
+
+}

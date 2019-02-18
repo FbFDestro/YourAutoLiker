@@ -18,3 +18,18 @@ if (!window.chrome) {
     document.getElementById('installBtn').setAttribute("show", "false");
     document.getElementById('noChrome').setAttribute("show", "true");
 }
+
+let menuMobile = document.getElementById("menuMobileOpen");
+
+menuMobile.onclick = function () {
+    let menuIcon = this.innerText;
+    let nav = document.getElementsByTagName("nav")[0];
+    if (menuIcon == "☰ ＋") {
+        nav.classList.remove('hideMobile');
+        this.innerText = "☰ ➖";
+    } else {
+        nav.classList.add('hideMobile');
+        this.innerText = "☰ ＋";
+    }
+
+};
