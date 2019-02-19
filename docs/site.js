@@ -1,9 +1,3 @@
-let installBtn = document.getElementById("installBtn");
-installBtn.onclick = function (){
-    chrome.webstore.install();
-}
-
-
 let hash = window.location.hash;
 if (hash == '#thanks' || hash == '#share') {
 

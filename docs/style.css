@@ -56,6 +56,11 @@ body {
     margin-top: 5px;
 }
 
+a#installBtn {
+    text-decoration: none;
+    display: block;
+}
+
 #installBtn {
     color: #fff;
     border-radius: 15px;
