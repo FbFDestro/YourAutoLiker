@@ -228,8 +228,9 @@ function getElementsOfVideo() {
         let image = document.querySelector('.ytd-video-owner-renderer > img').src;
         let subscribeBtn = document.querySelector('#subscribe-button.ytd-video-secondary-info-renderer > ytd-subscribe-button-renderer > paper-button');
 
-        // DEIXAR SO O NOME COMO OBRIGATORIO
-/*         document.querySelector('#subscribe-button > ytd-button-renderer > a').click() */
+        if (subscribeBtn === null) { // in case of not being logged
+            subscribeBtn = document.querySelector('#subscribe-button > ytd-button-renderer > a');
+        }
 
         let channelInfo = new ChannelInfo(name, image, subscribeBtn);
         page.setChannelInfo(channelInfo);
@@ -275,7 +276,7 @@ function doLikeOrDislike() {
         } else if (page.channelInfo !== undefined && page.likeSet.has(page.channelInfo.name)) {
             likeBtn.click();
             trackEventSend("like");
-           
+
         } else if (page.channelInfo !== undefined && page.dislikeSet.has(page.channelInfo.name)) {
             dislikeBtn.click();
             trackEventSend("dislike");
@@ -283,11 +284,11 @@ function doLikeOrDislike() {
     }
 }
 
-function trackEventSend(reaction){ // capture name of the video and send event to analytics
+function trackEventSend(reaction) { // capture name of the video and send event to analytics
     let videoName = "";
-    try{
+    try {
         videoName = document.querySelector(".title > .ytd-video-primary-info-renderer").textContent;
-    }catch(e){
+    } catch (e) {
         console.log("Nome não capturado");
     }
     trackEvent(page.channelInfo.name, reaction, videoName);

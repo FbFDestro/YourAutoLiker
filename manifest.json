@@ -29,6 +29,9 @@
     "default_title": "Your Auto Liker - Reaga a esse canal",
     "default_popup": "popup/popup.html"
   },
+  "icons": {
+    "256": "imgs/icon.png"
+  },
   "permissions": [
     "tabs",
     "storage"
