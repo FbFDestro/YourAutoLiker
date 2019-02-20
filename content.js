@@ -271,10 +271,23 @@ function doLikeOrDislike() {
             console.log('O video ja recebeu um like ou dislike!\n');
         } else if (page.channelInfo !== undefined && page.likeSet.has(page.channelInfo.name)) {
             likeBtn.click();
+            trackEventSend("like");
+           
         } else if (page.channelInfo !== undefined && page.dislikeSet.has(page.channelInfo.name)) {
             dislikeBtn.click();
+            trackEventSend("dislike");
         }
     }
+}
+
+function trackEventSend(reaction){ // capture name of the video and send event to analytics
+    let videoName = "";
+    try{
+        videoName = document.querySelector(".title > .ytd-video-primary-info-renderer").textContent;
+    }catch(e){
+        console.log("Nome não capturado");
+    }
+    trackEvent(page.channelInfo.name, reaction, videoName);
 }
 
 function getElementsOfChannel() {
@@ -372,4 +385,23 @@ function saveDislikeSetChanges() {
         addEventListenerTimeUpdate();
         //doLikeOrDislike(); // tem que estar dentro para evitar problemas de sincronização
     });
+}
+
+
+var _AnalyticsCode = 'UA-134153603-1';
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', _AnalyticsCode]);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+
+function trackEvent(name, event, label) {
+    _gaq.push(['_trackEvent', name, event, label]);
 }
