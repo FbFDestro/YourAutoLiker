@@ -228,6 +228,9 @@ function getElementsOfVideo() {
         let image = document.querySelector('.ytd-video-owner-renderer > img').src;
         let subscribeBtn = document.querySelector('#subscribe-button.ytd-video-secondary-info-renderer > ytd-subscribe-button-renderer > paper-button');
 
+        // DEIXAR SO O NOME COMO OBRIGATORIO
+/*         document.querySelector('#subscribe-button > ytd-button-renderer > a').click() */
+
         let channelInfo = new ChannelInfo(name, image, subscribeBtn);
         page.setChannelInfo(channelInfo);
 
