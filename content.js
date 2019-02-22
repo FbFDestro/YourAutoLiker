@@ -250,10 +250,13 @@ function addEventListenerTimeUpdate() {
         let video = document.querySelector('.video-stream');
 
         chrome.storage.sync.get(['whenReactInPercent'], function (result) {
-            let whenReact = video.duration * result.whenReactInPercent; // define the time that should react
-            whenReact = Math.min(whenReact, video.duration - 1); // react at most 1 second before ending video
             video.ontimeupdate = function () {
-                onVideoTimeUpdate(video, whenReact)
+                if (document.querySelector(".ad-showing") === null) { // is not an ad
+                    let whenReact = video.duration * result.whenReactInPercent; // define the time that should react
+                    whenReact = Math.min(whenReact, video.duration - 1); // react at most 1 second before ending video
+                    onVideoTimeUpdate(video, whenReact);
+                }
+                console.log(video.currentTime);
             }; // run code that verify is will try to react on video
         });
     }
@@ -261,6 +264,7 @@ function addEventListenerTimeUpdate() {
 
 function onVideoTimeUpdate(video, whenReact) {
     if (video.currentTime > whenReact) {
+        console.log("like" + video.currentTime);
         video.ontimeupdate = null; // stop listener
         doLikeOrDislike();
     }
