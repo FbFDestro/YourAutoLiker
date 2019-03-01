@@ -289,13 +289,17 @@ function doLikeOrDislike() {
 }
 
 function trackEventSend(reaction) { // capture name of the video and send event to analytics
-    let videoName = "";
     try {
-        videoName = document.querySelector(".title > .ytd-video-primary-info-renderer").textContent;
-    } catch (e) {
+        let videoName = document.querySelector(".title > .ytd-video-primary-info-renderer").textContent;
+        sendMessage({
+            type: "trackEvent",
+            name: page.channelInfo.name,
+            reaction: reaction,
+            videoName: videoName
+        })
+    } catch (e) { // problems cathing the name of the video
         console.log("Nome não capturado");
     }
-    trackEvent(page.channelInfo.name, reaction, videoName);
 }
 
 function getElementsOfChannel() {
@@ -322,8 +326,6 @@ function getElementsOfChannel() {
     } catch (error) {
         console.log('Didn\'t find elements');
     }
-
-    // load name of channel
 }
 
 function getElementsOfPlaylist() {
@@ -342,7 +344,6 @@ function getElementsOfPlaylist() {
     } catch (error) {
         console.log('Didn\'t find elements');
     }
-
 }
 
 function startAlwaysLike() {
@@ -393,23 +394,4 @@ function saveDislikeSetChanges() {
         addEventListenerTimeUpdate();
         //doLikeOrDislike(); // tem que estar dentro para evitar problemas de sincronização
     });
-}
-
-
-var _AnalyticsCode = 'UA-134153603-1';
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', _AnalyticsCode]);
-_gaq.push(['_trackPageview']);
-
-(function () {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = 'https://ssl.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-})();
-
-function trackEvent(name, event, label) {
-    _gaq.push(['_trackEvent', name, event, label]);
 }
