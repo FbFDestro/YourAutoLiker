@@ -3,7 +3,7 @@
   "name": "Your Auto Liker",
   "short_name": "Your Liker",
   "description": "Nunca mais esqueça de dar like ou dislike nos vídeos que assiste no Youtube! Dê likes e dislikes automaticamente.",
-  "version": "0.1",
+  "version": "0.1.1",
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [{
     "matches": [
