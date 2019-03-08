@@ -43,6 +43,7 @@ A extensão foi criada com o intuito de ajudar usuários e criadores de conteúd
 
 Como o usuário é o responsável por selecionar os canais e decidir assistir os vídeos que assiste, a extensão Your Auto Liker NÃO tem o intuito de obter Likes de forma fraudulenta e sim facilitar e automatizar uma reação genuína à videos assistidos.
 
+>Na página de política do Youtube sobre [Engajamento Falso](https://support.google.com/youtube/answer/3399767?hl=en&ref_topic=2803176) ("Fake Engagement Policy"), é possível verificar que o Youtube considera que o envolvimento é legítimo quando a intenção principal de um usuário humano é interagir com conteúdo livre de coerção ou fraude, exatamente como a extensão funciona (“We consider engagement to be legitimate when a human user’s primary intent is to interact with content free of coercion or deception.”).
 
 ## Historia da Extensão
 
