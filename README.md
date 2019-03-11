@@ -78,3 +78,8 @@ O que começou com um joguinho, evoluiu para um antigo blog criado com o foco em
 Como eu já mencionei, esse foi meu primeiro projeto real utilizando Javascript e também a minha primeira extensão. Dei o meu melhor para fazer um código legível e organizado, apesar da falta de experiência na linguagem, o que pode ter acarretado em soluções pouco eficientes em algumas partes.
 
 De qualquer forma, você pode dar uma olhada no meu GitHub e ter acesso ao código todo da extensão e enviar melhorias e sugestões caso queira.
+
+## Ajude a divulgar
+
+Por fim peço para caso tenha se interessado no projeto, no código e na ideia, que compartilhe o [site da extensão](http://yourautoliker.com) e permita que outras pessoas conheçam e utilizem a ideia!
+
