@@ -3,7 +3,7 @@
 
 Your Auto Liker é uma extensão de navegador que permite que os usuários reajam automaticamente aos videos que assiste no Youtube. Nunca mais esqueça de dar like ou dislike nos vídeos que assiste! Apoie seus canais favoritos curtindo automaticamente seus vídeos.
 
-## [Instalar a extensão](http://yourautoliker.com)
+## [Instalar a extensão](https://chrome.google.com/webstore/detail/your-auto-liker/akbbabbhifekchhpijcbmicndgbeahoi)
 
 >Browser extension that automatically like or dislike youtube videos from selected channels. When browsing on Youtube it is possible to add channels to the lists "Always like videos of this channel" or "Always dislike videos of this channel". So, when you watch videos from this specifics channels, the extensions automaticlly likes or dislike the video at some specific momment.
 
@@ -43,6 +43,7 @@ A extensão foi criada com o intuito de ajudar usuários e criadores de conteúd
 
 Como o usuário é o responsável por selecionar os canais e decidir assistir os vídeos que assiste, a extensão Your Auto Liker NÃO tem o intuito de obter Likes de forma fraudulenta e sim facilitar e automatizar uma reação genuína à videos assistidos.
 
+>Na página de política do Youtube sobre [Engajamento Falso](https://support.google.com/youtube/answer/3399767?hl=en&ref_topic=2803176) ("Fake Engagement Policy"), é possível verificar que o Youtube considera que o envolvimento é legítimo quando a intenção principal de um usuário humano é interagir com conteúdo livre de coerção ou fraude, exatamente como a extensão funciona (“We consider engagement to be legitimate when a human user’s primary intent is to interact with content free of coercion or deception.”).
 
 ## Historia da Extensão
 
@@ -77,3 +78,8 @@ O que começou com um joguinho, evoluiu para um antigo blog criado com o foco em
 Como eu já mencionei, esse foi meu primeiro projeto real utilizando Javascript e também a minha primeira extensão. Dei o meu melhor para fazer um código legível e organizado, apesar da falta de experiência na linguagem, o que pode ter acarretado em soluções pouco eficientes em algumas partes.
 
 De qualquer forma, você pode dar uma olhada no meu GitHub e ter acesso ao código todo da extensão e enviar melhorias e sugestões caso queira.
+
+## Ajude a divulgar
+
+Por fim peço para caso tenha se interessado no projeto, no código e na ideia, que compartilhe o [site da extensão](http://yourautoliker.com) e permita que outras pessoas conheçam e utilizem a ideia!
+
