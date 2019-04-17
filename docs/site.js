@@ -9,6 +9,7 @@ if (hash == '#thanks' || hash == '#share') {
     }
 }
 
+/*
 window.onhashchange = () => {
 
     console.log("hash changed");
@@ -17,6 +18,7 @@ window.onhashchange = () => {
     }
 
 }
+*/
 
 document.querySelector('#messagePop > img.closeImg').onclick = function () {
     document.getElementById('messagePop').setAttribute('show', 'false');
