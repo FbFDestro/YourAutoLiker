@@ -73,6 +73,10 @@ ul#menu {
     transition: 0.6s;
 }
 
+.active:after {
+    content: initial;
+}
+
 #menu li a:hover {
     background-color: #121212;
     transition: 0.6s;
