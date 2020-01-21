@@ -21,11 +21,16 @@ function getMessage(message, sender, sendResponse) {
 }
 
 chrome.runtime.onInstalled.addListener(function (object) {
-	chrome.storage.sync.set({
-		'whenReactInPercent': 0.80
-	});
-	chrome.tabs.create({
-		url: 'http://yourautoliker.com/#use'
+	chrome.storage.sync.get(['whenReactInPercent'], function (result) {
+		// checks if it's the first time the extension is running
+		if (result.whenReactInPercent == undefined) {
+			chrome.storage.sync.set({
+				'whenReactInPercent': 0.80
+			});
+			chrome.tabs.create({
+				url: 'http://yourautoliker.com/#use'
+			});
+		}
 	});
 });
 
