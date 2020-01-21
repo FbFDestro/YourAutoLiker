@@ -220,11 +220,11 @@ function loadLists(getElements, wait) { // load the list of channels and than ge
     old versions of Youtube.
 */
 function getElementsOfVideo() {
-    console.log('is video');
+    console.log('is video debug');
 
     try {
         // may be needed to use others selectors in others versions of Youtube
-        let name = document.getElementById('owner-container').innerText.trim();
+        let name = document.querySelector('#upload-info > #channel-name').innerText.trim();
         let image = document.querySelector('.ytd-video-owner-renderer > img').src;
         let subscribeBtn = document.querySelector('#subscribe-button.ytd-video-secondary-info-renderer > ytd-subscribe-button-renderer > paper-button');
 
@@ -275,7 +275,7 @@ function doLikeOrDislike() {
         let likeBtn = document.querySelector('#top-level-buttons > ytd-toggle-button-renderer:nth-child(1) > a > #button');
         let dislikeBtn = document.querySelector('#top-level-buttons > ytd-toggle-button-renderer:nth-child(2) > a > #button');
 
-        if (likeBtn.getAttribute('aria-pressed') == 'true' || dislikeBtn.getAttribute('aria-pressed') == 'true') {
+        if (likeBtn.classList.contains('style-default-active') || dislikeBtn.classList.contains('style-default-active')) {
             console.log('O video ja recebeu um like ou dislike!\n');
         } else if (page.channelInfo !== undefined && page.likeSet.has(page.channelInfo.name)) {
             likeBtn.click();
@@ -305,18 +305,12 @@ function trackEventSend(reaction) { // capture name of the video and send event 
 function getElementsOfChannel() {
     console.log('is channel');
     try {
-        let name = document.getElementById('channel-title');
-
-        if (name.querySelector('span') !== null) { // sometimes there is a Span inside element depending on youtube rendering
-            name = name.querySelector('span').innerText;
-        } else {
-            name = name.innerText;
-        }
-
-        name.trim(); // avoid white spaces before and after string
+        let name = document.querySelector('#channel-name').innerText.trim();
 
         let image = document.querySelector('#channel-header-container > yt-img-shadow > img').src;
-        let subscribeBtn = document.querySelector('#channel-header-container > #subscribe-button > ytd-subscribe-button-renderer > paper-button');
+        let subscribeBtn = document.querySelector("#subscribe-button > ytd-subscribe-button-renderer > paper-button");
+        document.querySelector('#channel-header-container > #subscribe-button > ytd-subscribe-button-renderer > paper-button');
+
 
         let channelInfo = new ChannelInfo(name, image, subscribeBtn);
         page.setChannelInfo(channelInfo);
@@ -331,7 +325,7 @@ function getElementsOfChannel() {
 function getElementsOfPlaylist() {
     console.log('is playlist');
     try {
-        let name = document.querySelectorAll('#owner-container > #video-owner > ytd-video-owner-renderer > a')[0].getAttribute('aria-label').trim();
+        let name = document.querySelector("#text > a").innerText.trim();
 
         let image = document.querySelector('#owner-container > #video-owner > ytd-video-owner-renderer > a > #avatar > img').src;
         let subscribeBtn = document.querySelector('#owner-container > #button > ytd-subscribe-button-renderer > paper-button');
