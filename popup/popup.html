@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Your Auto Liker</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="popup.css">
-	<title>Your Auto Liker</title>
-</head>
+  <body>
+    <div id="popup">
+      <div id="header">
+        <img id="logo" class="linkSite" src="../imgs/icon.png" />
+        <div id="name" class="linkSite">Your Auto Liker</div>
+        <div id="support" show="true">
+          <a class="supportBtn" href="#"><!--Support extension--></a>
+        </div>
+        <div id="subscribe" subscribed="false" show="false">
+          <a class="subscribeBtn start" href="#"><!--Subscribe--></a>
+        </div>
+      </div>
 
-<body>
+      <div id="buttons">
+        <div id="refresh">
+          <img class="refreshBtn" src="../imgs/refresh.png" alt="Refresh" />
+        </div>
 
-	<div id="popup">
+        <div id="alwaysLike" class="btn" alreadySubscribed="false" show="false">
+          <div class="icon"><img src="../imgs/like.png" /></div>
+          <a class="alwaysLikeBtn start" href="#">
+            <!--Always like this channel-->
+          </a>
+        </div>
 
-		<div id="header">
-			<img id="logo" class="linkSite" src="../imgs/icon.png" />
-			<div id="name" class="linkSite">Your Auto Liker</div>
-			<div id="support" show="true"><a class="supportBtn" href="#">Apoiar a extensão</a></div>
-			<div id="subscribe" subscribed="false" show="false"><a class="subscribeBtn start" href="#">Inscreva-se</a></div>
-		</div>
+        <div id="alwaysDislike" class="btn" alreadySubscribed="false" show="false">
+          <div class="icon"><img src="../imgs/dislike.png" /></div>
+          <a class="alwaysDislikeBtn start" href="#">
+            <!--Alwyas dislike this channel-->
+          </a>
+        </div>
 
-		<div id="buttons">
+        <p id="reactingInfo" show="false">
+          <!--Reacting in xx% of the video-->
+        </p>
+        <hr id="divideLine" show="false" />
 
-			<div id="refresh"><img class="refreshBtn" src="../imgs/refresh.png" alt="Refresh"></div>
+        <div id="configureExtensionBtn" class="btn">
+          <div class="icon"><img src="../imgs/conf.png" /></div>
+          <a class="configurationBtn" href="#"><!--Configure extension--></a>
+          <div class="icon loading"><img src="../imgs/load.gif" /></div>
+        </div>
+      </div>
+    </div>
 
-			<div id="alwaysLike" class="btn" alreadySubscribed="false" show="false">
-				<div class="icon"><img src="../imgs/like.png"></div>
-				<a class="alwaysLikeBtn start" href="#">Sempre gostar desse canal</a>
-			</div>
-
-			<div id="alwaysDislike" class="btn" alreadySubscribed="false" show="false">
-				<div class="icon"><img src="../imgs/dislike.png"></div>
-				<a class="alwaysDislikeBtn start" href="#">Sempre não gostar desse canal</a>
-			</div>
-
-			<p id="reactingInfo" show="false">Reagindo em xx% do video</p>
-			<hr id="divideLine" show="false" />
-
-			<div id="configureExtensionBtn" class="btn">
-				<div class="icon"><img src="../imgs/conf.png"></div>
-				<a class="configurationBtn" href="#">Configurar a extensão</a>
-				<!--Preciso descobrir como fazer a tradução https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization-->
-				<div class="icon loading"><img src="../imgs/load.gif"></div>
-			</div>
-
-		</div>
-
-	</div>
-
-	<script src="popup.js"></script>
-</body>
-
+    <script src="popup.js"></script>
+  </body>
 </html>

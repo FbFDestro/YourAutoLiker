@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "Your Auto Liker",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appShortName": {
+    "message": "Your Liker",
+    "description": "The short title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "Automatically like or dislike videos from selected channels.",
+    "description": "The description of the application, displayed in the web store."
+  },
+  "support": {
+    "message": "Support the extension",
+    "description": "Support the extension link on popup"
+  },
+  "subscribe": {
+    "message": "Subscribe",
+    "description": "Subscription link on popup"
+  },
+  "subscribed": {
+    "message": "Subscribed",
+    "description": "Subscribed link on popup"
+  },
+  "alwaysLikeBtn": {
+    "message": "Always like this channel",
+    "description": "Always like this channel button on popup"
+  },
+  "stopAlwaysLikeBtn": {
+    "message": "Stop always liking this channel",
+    "description": "Stop always liking this channel button on popup"
+  },
+  "alwaysDislikeBtn": {
+    "message": "Always dislike this channel",
+    "description": "Always dislike this channel button on popup"
+  },
+  "stopAlwaysDislikeBtn": {
+    "message": "Stop always disliking this channel",
+    "description": "Stop always disliking this channel button on popup"
+  },
+  "reactingIn": {
+    "message": "Reacting in $1% of the video",
+    "description": "Reacting in xx% of the video message on popup"
+  },
+  "configureExtension": {
+    "message": "Configure extension",
+    "description": "Configure extension button on popup"
+  }
+}

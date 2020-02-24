@@ -1,0 +1,38 @@
+{
+  "appName": {
+    "message": "Your Auto Liker"
+  },
+  "appShortName": {
+    "message": "Your Liker"
+  },
+  "appDesc": {
+    "message": "Nunca mais esqueça de dar like ou dislike nos vídeos que assiste no Youtube! Dê likes e dislikes automaticamente."
+  },
+  "support": {
+    "message": "Apoiar a extensão"
+  },
+  "subscribe": {
+    "message": "Inscreva-se"
+  },
+  "subscribed": {
+    "message": "Inscrito"
+  },
+  "alwaysLikeBtn": {
+    "message": "Sempre gostar desse canal"
+  },
+  "stopAlwaysLikeBtn": {
+    "message": "Parar de sempre gostar desse canal"
+  },
+  "alwaysDislikeBtn": {
+    "message": "Sempre não gostar desse canal"
+  },
+  "stopAlwaysDislikeBtn": {
+    "message": "Parar de sempre não gostar desse canal"
+  },
+  "reactingIn": {
+    "message": "Reagindo em $1% do video"
+  },
+  "configureExtension": {
+    "message": "Configurar a extensão"
+  }
+}

@@ -1,25 +1,20 @@
 {
   "manifest_version": 2,
-  "name": "Your Auto Liker",
-  "short_name": "Your Liker",
-  "description": "Nunca mais esqueça de dar like ou dislike nos vídeos que assiste no Youtube! Dê likes e dislikes automaticamente.",
+  "name": "__MSG_appName__",
+  "short_name": "__MSG_appShortName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
   "version": "0.1.2",
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ],
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
       "run_at": "document_end"
     }
   ],
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": true
   },
   "options_ui": {
@@ -34,8 +29,5 @@
   "icons": {
     "256": "imgs/icon.png"
   },
-  "permissions": [
-    "tabs",
-    "storage"
-  ]
+  "permissions": ["tabs", "storage"]
 }
