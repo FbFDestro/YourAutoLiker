@@ -46,5 +46,61 @@
   "configureExtension": {
     "message": "Configure extension",
     "description": "Configure extension button on popup"
+  },
+  "saveChanges": {
+    "message": "Save changes",
+    "description": "Save changes button configuratin page"
+  },
+  "saveChangesTitle": {
+    "message": "Changes need to be saved",
+    "description": "Save changes title box cofiguration page"
+  },
+  "noChanges": {
+    "message": "No changes",
+    "description": "No changes button configuration page"
+  },
+  "noChangesTitle": {
+    "message": "No changes to be saved",
+    "description": "No changes title box configuration page"
+  },
+  "alwaysLikeTitle": {
+    "message": "Always like",
+    "description": "Always like title box configuration page"
+  },
+  "alwaysDislikeTitle": {
+    "message": "Always dislike",
+    "description": "Always dislike title box configuration page"
+  },
+  "reactAfterWatchingTitle": {
+    "message": "React after watching",
+    "description": "React after watchin XX% title box configuration page"
+  },
+  "suggestionsMsg": {
+    "message": "Send suggestions and bugs to <a href='mailto:yourautoliker@gmail.com'>yourautoliker@gmail.com</a> or on Chrome Web Store <a href='https://chrome.google.com/webstore/detail/your-auto-liker/akbbabbhifekchhpijcbmicndgbeahoi/support' target='_blank' title='Send suggestions or bugs on support page'>support page</a>",
+    "description": "Message to ask for suggestion and inform email"
+  },
+  "reviewExtension": {
+    "message": " <a href='https://chrome.google.com/webstore/detail/your-auto-liker/akbbabbhifekchhpijcbmicndgbeahoi/reviews' target='_blank' title='Review the extension'>Review the extension</a> on Chrome Web Store",
+    "description": "Message to ask for review at Chrome web Store"
+  },
+  "reloadNeededWarning": {
+    "message": "Attention: reloading pages with the extension might be needed to apply changes",
+    "description": "Warning message informing about the need of reloading page after changes on the configuration page"
+  },
+  "supportLinkMenu": {
+    "message": "Support",
+    "description": "Support the extension link on the configuration page menu"
+  },
+  "moreAboutLinkMenu": {
+    "message": "More about",
+    "description": "More about the extension link on the configuration page menu"
+  },
+  "howToUseLinkMenu": {
+    "message": "How to use",
+    "description": "How to use the extension link on the configuration page menu"
+  },
+  "configurations": {
+    "message": "Configurations",
+    "description": "Configurations strings displayed on page title and menu"
   }
 }

@@ -1,118 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="configuration.css">
-    <link rel="stylesheet" href="../styles/shared.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="configuration.css" />
+    <link rel="stylesheet" href="../styles/shared.css" />
     <title>Configuarações</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <div id="header-fix">
-            <div id="header-content">
-                <div id="logo">
-                    <a href="http://yourautoliker.com/"><img src="../imgs/logo.png" alt="Your Auto Liker"></a>
-                </div>
-                <nav>
-                    <ul id="menu">
-                        <li class="menuConfBtn"><a class="active" href="#">Configurações</a></li>
-                        <li class="menuHowUseBtn"><a href="http://yourautoliker.com/#comoUsar">Como
-                                usar</a></li>
-                        <li class="menuKnowMore"><a href="http://yourautoliker.com/saiba-mais.html">Saiba mais</a></li>
-                        <li class="menuSupportBtn"><a class="support" href="http://yourautoliker.com/#apoie">Apoiar</a></li>
-                    </ul>
-                </nav>
-            </div>
+      <div id="header-fix">
+        <div id="header-content">
+          <div id="logo">
+            <a href="http://yourautoliker.com/"
+              ><img src="../imgs/logo.png" alt="Your Auto Liker"
+            /></a>
+          </div>
+          <nav>
+            <ul id="menu">
+              <li class="menuConfBtn"><a class="active" href="#">Configurações</a></li>
+              <li class="menuHowUseBtn">
+                <a href="http://yourautoliker.com/#comoUsar">Como usar</a>
+              </li>
+              <li class="menuKnowMore">
+                <a href="http://yourautoliker.com/saiba-mais.html">Saiba mais</a>
+              </li>
+              <li class="menuSupportBtn">
+                <a class="support" href="http://yourautoliker.com/#apoie">Apoiar</a>
+              </li>
+            </ul>
+          </nav>
         </div>
+      </div>
     </header>
 
     <article>
-
-
-        <div class="box like">
-            <div class="header-box"><img src="../imgs/like.png" alt="Sempre gostar">Sempre gostar</div>
-            <div class="content-box">
-
-            </div>
+      <div class="box like">
+        <div class="header-box">
+          <img src="../imgs/like.png" alt="Sempre gostar" /><span></span>
+          <!--Always like-->
         </div>
+        <div class="content-box"></div>
+      </div>
 
-        <div class="box dislike">
-            <div class="header-box"><img src="../imgs/dislike.png" alt="Sempre não gostar">Sempre não gostar</div>
-            <div class="content-box">
-
-            </div>
+      <div class="box dislike">
+        <div class="header-box">
+          <img src="../imgs/dislike.png" alt="Sempre não gostar" /><span></span>
+          <!--Alwyas dislike-->
         </div>
+        <div class="content-box"></div>
+      </div>
 
-        <div class="box react">
-            <div class="header-box">Reagir ao assistir <div class="percent">80%</div>
-            </div>
-            <div class="content-box">
-                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-            </div>
+      <div class="box react">
+        <div class="header-box">
+          <span></span>
+          <!--React after watching -->
+          <div class="percent">80%</div>
         </div>
-
-        <div class="box save">
-            <div class="header-box">Informações salvas</div>
-            <div class="content-box">
-                <div class="btn" saved="true">Sem alterações</div>
-            </div>
+        <div class="content-box">
+          <input type="range" min="0" max="100" value="50" class="slider" id="myRange" />
         </div>
+      </div>
 
-        <!--         <div id="horizontalImg">
+      <div class="box save">
+        <div class="header-box">Informações salvas</div>
+        <div class="content-box">
+          <div class="btn" saved="true">Sem alterações</div>
+        </div>
+      </div>
+
+      <!--         <div id="horizontalImg">
             <div id="horizontalImgContent">ad here</div>
         </div> -->
 
-        <div id="contato">
-            <p>
-                Envie sugestões e problemas via e-mail para <a href="mailto:yourautoliker@gmail.com">yourautoliker@gmail.com</a>
-            </p>
+      <div id="contato">
+        <p>
+          <!--Suggestions and bug report-->
+        </p>
 
-            <p>
-                <a href="https://chrome.google.com/webstore/detail/your-auto-liker/akbbabbhifekchhpijcbmicndgbeahoi/reviews"
-                    target="_blank" title="Avalie a extensão">Avalie o extensão</a> na Chrome Web Store
-            </p>
+        <p>
+          <!-- Review the extension -->
+        </p>
 
-            <p>
-                <a href="https://chrome.google.com/webstore/detail/your-auto-liker/akbbabbhifekchhpijcbmicndgbeahoi/support"
-                    target="_blank" title="Envie sugestões sobre a extensão">Envie sugestões e problemas</a> na página
-                de suporte da Chrome Web Store
-            </p>
-
-            <div class="info">
-                <p>Atenção: após alterações pode ser necessário recarregar páginas que utilizam a extensão.</p>
-            </div>
+        <div class="info">
+          <p>
+            <!--Reload needed warning-->
+          </p>
         </div>
-
-
+      </div>
     </article>
 
     <footer>
-        <div id="footer">
-            <div class="footerImg">
-                <img src="../imgs/fbfdestroLogo.png" class="fbfLogo" alt="Fabio F. Destro">
-            </div>
-            <div class="footerImg">
-                <a href="https://github.com/FbFDestro/YourAutoLiker" target="_blank">
-                    <img class="github" src="../imgs/github.png" alt="GitHub">
-                </a>
-            </div>
-            <div class="footerText">
-                <p>
-                    Fabio F. Destro - Contato <a href="mailto:yourautoliker@gmail.com">yourautoliker@gmail.com</a>
-                </p>
-            </div>
-
+      <div id="footer">
+        <div class="footerImg">
+          <img src="../imgs/fbfdestroLogo.png" class="fbfLogo" alt="Fabio F. Destro" />
         </div>
+        <div class="footerImg">
+          <a href="https://github.com/FbFDestro/YourAutoLiker" target="_blank">
+            <img class="github" src="../imgs/github.png" alt="GitHub" />
+          </a>
+        </div>
+        <div class="footerText">
+          <p>
+            Fabio F. Destro -
+            <a href="mailto:yourautoliker@gmail.com">yourautoliker@gmail.com</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="configuration.js"></script>
-
-</body>
-
+  </body>
 </html>

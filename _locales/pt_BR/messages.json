@@ -34,5 +34,47 @@
   },
   "configureExtension": {
     "message": "Configurar a extensão"
+  },
+  "saveChanges": {
+    "message": "Salvar alterações"
+  },
+  "saveChangesTitle": {
+    "message": "Informações precisam ser salvas"
+  },
+  "noChanges": {
+    "message": "Sem alterações"
+  },
+  "noChangesTitle": {
+    "message": "Informações salvas"
+  },
+  "alwaysLikeTitle": {
+    "message": "Sempre gostar"
+  },
+  "alwaysDislikeTitle": {
+    "message": "Sempre não gostar"
+  },
+  "reactAfterWatchingTitle": {
+    "message": "Reagir ao assistir"
+  },
+  "suggestionsMsg": {
+    "message": "Envie sugestões e problemas via e-mail para <a href='mailto:yourautoliker@gmail.com'>yourautoliker@gmail.com</a> ou na <a href='https://chrome.google.com/webstore/detail/your-auto-liker/akbbabbhifekchhpijcbmicndgbeahoi/support' target='_blank' title='Enviar sugestões e problemas'>página de suportde</a> da Chrome Web Store"
+  },
+  "reviewExtension": {
+    "message": " <a href='https://chrome.google.com/webstore/detail/your-auto-liker/akbbabbhifekchhpijcbmicndgbeahoi/reviews' target='_blank' title='Avalie a extensão'>Avalie a extensão</a> na Chrome Web Store"
+  },
+  "reloadNeededWarning": {
+    "message": "Atenção: após alterações pode ser necessário recarregar páginas que utilizam a extensão."
+  },
+  "supportLinkMenu": {
+    "message": "Apoiar"
+  },
+  "moreAboutLinkMenu": {
+    "message": "Saiba mais"
+  },
+  "howToUseLinkMenu": {
+    "message": "Como usar"
+  },
+  "configurations": {
+    "message": "Configurações"
   }
 }
