@@ -8,7 +8,7 @@
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": ["*://*.youtube.com/*", "http://yourautoliker.com/*"],
       "js": ["content.js"],
       "run_at": "document_end"
     }
