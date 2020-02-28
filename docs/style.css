@@ -1,606 +1,651 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
-    font-family: nexaL;
-    src: url(files/nexaL.otf);
+  font-family: nexaL;
+  src: url(files/nexaL.otf);
 }
 
-
 @font-face {
-    font-family: nexaB;
-    src: url(files/nexaB.otf);
+  font-family: nexaB;
+  src: url(files/nexaB.otf);
 }
 
 body {
-    font-family: NexaL;
-    background-color: #000;
+  font-family: NexaL;
+  background-color: #000;
 }
 
-[show="false"] {
-    display: none !important;
+[show='false'] {
+  display: none !important;
 }
 
 #install {
-    margin: 0 auto;
-    margin-top: 80px;
-    width: 100%;
-    padding: 20px 0;
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 100%;
+  padding: 20px 0;
 }
 
 .install-header {
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-family: nexaB;
-    text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: nexaB;
+  text-align: center;
 }
 
 .color {
-    display: inline;
+  display: inline;
 }
 
 .lk-color {
-    color: #2ab0ee;
+  color: #2ab0ee;
 }
 
 .dl-color {
-    color: #f00;
+  color: #f00;
 }
 
 .install-content {
-    color: #fff;
-    text-align: center;
-    margin-top: 5px;
+  color: #fff;
+  text-align: center;
+  margin-top: 5px;
 }
 
 a#installBtn {
-    text-decoration: none;
-    display: block;
+  text-decoration: none;
+  display: block;
 }
 
 #installBtn {
-    color: #fff;
-    border-radius: 15px;
-    margin: 0 auto;
-    padding: 15px;
-    margin-top: 18px;
-    background-color: #f00;
-    font-family: nexaB;
-    text-transform: uppercase;
-    width: 200px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.6s;
+  color: #fff;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 15px;
+  margin-top: 18px;
+  background-color: #f00;
+  font-family: nexaB;
+  text-transform: uppercase;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.6s;
 }
 
 #installBtn:hover {
-    opacity: 0.6;
-    transition: 0.6s;
+  opacity: 0.6;
+  transition: 0.6s;
 }
 
 #noChrome {
-    color: #f00;
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
+  color: #f00;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 article {
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
 #messagePop {
-    text-align: center;
-    font-family: nexaB;
-    padding: 20px 20px 10px 20px;
-    width: 200px;
-    background: #eee;
-    border: 1px solid #ccc;
-    border-radius: 0 10px 0 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  text-align: center;
+  font-family: nexaB;
+  padding: 20px 20px 10px 20px;
+  width: 200px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 0 10px 0 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
 #messagePop p {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 #messagePop img.closeImg {
-    width: 20px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
+  width: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }
 
 .content {
-    width: 850px;
-    margin: 0 auto;
+  width: 850px;
+  margin: 0 auto;
 }
 
-a[name="comoUsar"] {
-    width: 100px;
-    /*     border: 1px solid; */
-    position: absolute;
-    margin-top: -100px;
+a[name='comoUsar'] {
+  width: 100px;
+  /*     border: 1px solid; */
+  position: absolute;
+  margin-top: -100px;
 }
 
 #howToUsePopup {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 #bar {
-    padding-top: 20px;
-    height: 50px;
+  padding-top: 20px;
+  height: 50px;
 }
 
 #adress {
-    margin-top: 6px;
-    width: 560px;
-    float: right;
+  margin-top: 6px;
+  width: 560px;
+  float: right;
 }
 
 .itens {
-    text-transform: uppercase;
-    font-size: 15px;
-    border-bottom: 1px dashed #ccc;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-bottom: 1px dashed #ccc;
 }
 
 #image-name {
-    margin-top: 13px;
+  margin-top: 13px;
 }
 
 #addLike {
-    margin-top: 44px;
+  margin-top: 44px;
 }
 
 #addDisike {
-    margin-top: 31px;
+  margin-top: 31px;
 }
 
 #percentage {
-    margin-top: 18px;
+  margin-top: 18px;
 }
 
 #configuration {
-    margin-top: 21px;
+  margin-top: 21px;
 }
 
 #popupInfo {
-    width: 100%;
-    float: left;
-    margin: 2px 0px 15px 0px;
+  width: 100%;
+  float: left;
+  margin: 2px 0px 15px 0px;
 }
 
 #popupInfo h3 {
-    font-family: nexaL;
-    font-weight: inherit;
-    font-size: 15px;
+  font-family: nexaL;
+  font-weight: inherit;
+  font-size: 15px;
 }
 
 #search-info {
-    float: left;
-    margin-top: 15px;
-    margin-right: 18px;
+  float: left;
+  margin-top: 15px;
+  margin-right: 18px;
 }
 
 #search-info h1 {
-    text-transform: uppercase;
-    font-size: 17px;
-    font-family: nexaB;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-family: nexaB;
 }
 
 #popup {
-    margin-top: 10px;
-    padding-bottom: 25px;
+  margin-top: 10px;
+  padding-bottom: 25px;
 }
 
 #popup-text {
-    float: left;
-    width: 462px;
-    line-height: 20px;
+  float: left;
+  width: 462px;
+  line-height: 20px;
 }
 
 #popup img {
-    float: right;
-    border: solid 1px #ccc;
-    margin-bottom: 25px;
+  float: right;
+  border: solid 1px #ccc;
+  margin-bottom: 25px;
 }
 
 #horizontalImg {
-    clear: both;
-    margin-top: 305px;
-    height: 90px;
+  clear: both;
+  margin-top: 305px;
+  height: 90px;
 }
 
 #horizontalImgContent {
-    width: 728px;
-    text-align: center;
-    line-height: 90px;
-    margin: 0 auto;
-    height: 90px;
-    background: #eee;
+  width: 728px;
+  text-align: center;
+  line-height: 90px;
+  margin: 0 auto;
+  height: 90px;
+  background: #eee;
 }
 
 .auto-liker-info {
-    width: 850px;
-    clear: both;
-    padding: 15px 0;
-    border: 1px solid #cccc;
-    background: #eee;
-    border-radius: 15px;
+  width: 850px;
+  clear: both;
+  padding: 15px 0;
+  border: 1px solid #cccc;
+  background: #eee;
+  border-radius: 15px;
 }
 
 .auto-liker-info.spaced {
-    margin-top: 25px;
-    margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .auto-liker-info h2 {
-    padding: 0 16px;
-    font-size: 16px;
-    font-family: nexaB;
+  padding: 0 16px;
+  font-size: 16px;
+  font-family: nexaB;
 }
 
 .auto-liker-info p {
-    line-height: 20px;
-    text-align: justify;
-    padding: 5px 16px;
-    color: #000;
-    font-family: Arial;
-    font-size: 14px;
+  line-height: 20px;
+  text-align: justify;
+  padding: 5px 16px;
+  color: #000;
+  font-family: Arial;
+  font-size: 14px;
 }
 
 #howToUseConfiguration {
-    background-color: #fff;
-    padding: 20px 0;
-    border-top: 1px solid #ccc;
+  background-color: #fff;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
 }
 
 #configurationTitle {
-    font-family: nexaB;
-    text-transform: uppercase;
-    font-size: 17px;
-    margin-bottom: 5px;
+  font-family: nexaB;
+  text-transform: uppercase;
+  font-size: 17px;
+  margin-bottom: 5px;
 }
 
 #configurationSubtitle h3 {
-    font-family: nexaL;
-    font-weight: inherit;
-    font-size: 15px;
+  font-family: nexaL;
+  font-weight: inherit;
+  font-size: 15px;
 }
 
 #configurationImg {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 #configurationImg img {
-    padding: 12px;
-    border: solid 1px #ccc;
-    border-radius: 20px;
-    background-color: #fff;
-    width: 655px;
-    margin-top: 20px;
+  padding: 12px;
+  border: solid 1px #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  width: 655px;
+  margin-top: 20px;
 }
 
 #rightImg {
-    margin-top: 20px;
-    float: right;
-    border: 1px solid #eee;
-    padding: 12px;
-    border-radius: 20px;
+  margin-top: 20px;
+  float: right;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 20px;
 }
 
 #rightImgContent {
-    width: 120px;
-    background: #eee;
-    text-align: center;
-    line-height: 240px;
-    height: 240px;
+  width: 120px;
+  background: #eee;
+  text-align: center;
+  line-height: 240px;
+  height: 240px;
 }
 
-a[name="use"] {
-    position: absolute;
-    margin-top: -80px;
+a[name='use'] {
+  position: absolute;
+  margin-top: -80px;
 }
 
-a[name="contato"] {
-    position: absolute;
-    margin-top: -100px;
+a[name='contato'] {
+  position: absolute;
+  margin-top: -100px;
 }
 
-a[name="apoie"] {
-    width: 100px;
-    position: absolute;
-    margin-top: -100px;
+a[name='apoie'] {
+  width: 100px;
+  position: absolute;
+  margin-top: -100px;
 }
 
 #howToUseVideo {
-    text-align: center;
-    padding: 20px 0;
+  text-align: center;
+  padding: 20px 0;
 }
 
 #howToUseVideo h2 {
-    width: 712px;
-    margin: 15px auto;
-    text-align: left;
-    color: #fff;
-    font-family: nexaB;
-    text-transform: uppercase;
-    font-size: 17px;
+  width: 712px;
+  margin: 15px auto;
+  text-align: left;
+  color: #fff;
+  font-family: nexaB;
+  text-transform: uppercase;
+  font-size: 17px;
 }
 
 #support {
-    border-top: 1px dotted #ccc;
-    padding-top: 40px;
-    color: #fff;
+  border-top: 1px dotted #ccc;
+  padding-top: 40px;
+  color: #fff;
 }
 
 #supportHead {
-    width: 70%;
-    float: left;
+  width: 70%;
+  float: left;
 }
 
 #share {
-    width: 30%;
-    float: left;
-    text-align: center;
+  width: 30%;
+  float: left;
+  text-align: center;
 }
 
 #supportTitle,
 #support h2 {
-    color: #f00;
-    font-size: 17px;
-    font-family: nexaB;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+  color: #f00;
+  font-size: 17px;
+  font-family: nexaB;
+  text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
 #support h2 {
-    color: #fff;
+  color: #fff;
 }
 
 #supportSubtitle {
-    font-size: 15px;
-    padding-top: 12px;
-    ;
+  font-size: 15px;
+  padding-top: 12px;
 }
 
 #donate {
-    float: left;
-    margin: 15px 0;
-    text-align: center;
+  float: left;
+  margin: 15px 0;
+  text-align: center;
 }
 
 #donate h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 17px;
-    margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 17px;
+  margin-bottom: 10px;
 }
 
 #paypal,
 #picpay,
 #picMensal {
-    text-align: center;
-    width: 33.333%;
-    float: left;
+  text-align: center;
+  width: 33.333%;
+  float: left;
 }
 
 #donate p {
-    text-transform: uppercase;
-    font-size: 15px;
-    margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 #paypal form {
-    margin-top: 15px;
-    width: 100px;
-    margin: 0 auto;
+  margin-top: 15px;
+  width: 100px;
+  margin: 0 auto;
 }
 
 img.qrcode {
-    border: 2px solid #fff;
-    width: 132px;
-    margin-bottom: 5px;
+  border: 2px solid #fff;
+  width: 132px;
+  margin-bottom: 5px;
 }
 
 p.picpayTitle {
-    text-transform: none !important;
-    font-family: nexaB;
+  text-transform: none !important;
+  font-family: nexaB;
 }
 
 p.picpayTitle a {
-    color: #21c25e;
+  color: #21c25e;
 }
 
 mark.pic {
-    color: #21c25e;
-    background: none;
-    font-weight: bold;
+  color: #21c25e;
+  background: none;
+  font-weight: bold;
 }
 
 p.picpayText {
-    text-transform: none !important;
-    line-height: 16px;
+  text-transform: none !important;
+  line-height: 16px;
 }
 
 #picCode {
-    margin: 10px 0;
-    width: 100%;
-    float: left;
+  margin: 10px 0;
+  width: 100%;
+  float: left;
 }
 
 #saibaMais {
-    background: #fff;
+  background: #fff;
 }
 
 #saibaMais .content {
-    padding: 30px 0;
+  padding: 30px 0;
 }
 
 #saibaMais p {
-    line-height: 20px;
-    text-align: justify;
-    padding: 5px;
-    text-indent: 30px;
-    color: #000;
-    font-family: Arial;
-    font-size: 14px;
+  line-height: 20px;
+  text-align: justify;
+  padding: 5px;
+  text-indent: 30px;
+  color: #000;
+  font-family: Arial;
+  font-size: 14px;
 }
 
 #saibaMais h1 {
-    margin: 10px 20px;
+  margin: 10px 20px;
 }
 
 .accordion {
-    background-color: #eee;
-    border: 1px solid #ccc !important;
-    border-left: 0;
-    border-right: 0;
-    color: #444;
-    cursor: pointer;
-    padding: 22px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    font-family: nexaB;
-    outline: none;
-    font-size: 16px;
-    transition: 0.4s;
+  background-color: #eee;
+  border: 1px solid #ccc !important;
+  border-left: 0;
+  border-right: 0;
+  color: #444;
+  cursor: pointer;
+  padding: 22px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-family: nexaB;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
 }
 
 .active,
 .accordion:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 .accordion:after {
-    content: '\002B';
-    color: #777;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
 }
 
 .active:after {
-    content: "\2212";
+  content: '\2212';
 }
 
 .panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 .panel a {
-    color: #f00;
+  color: #f00;
 }
 
 .panel.open {
-    padding: 12px 18px;
-    border: 1px solid #ccc;
+  padding: 12px 18px;
+  border: 1px solid #ccc;
 }
 
 #notFound {
-    background: #fff;
+  background: #fff;
 }
 
 #notFound .content {
-    padding: 60px 0;
-    text-align: center;
+  padding: 60px 0;
+  text-align: center;
 }
 
 #notFound p {
-    font-size: 20px;
-    text-transform: uppercase;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 #notFound p.erro {
-    text-transform: none;
-    margin-top: 30px;
-    font-size: 30px;
+  text-transform: none;
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+#languages {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.lang {
+  display: flex;
+  align-self: flex-end;
+}
+
+.langIcon {
+  margin: 0 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.lang img {
+  width: 20px;
+}
+
+.lang a {
+  font-family: NexaB;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px;
+  background-color: #232323;
+  padding: 10px 5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100px;
+  opacity: 0.7;
+  transition: all 0.4s;
+}
+
+.lang a.active {
+  cursor: inherit;
+  opacity: 1;
+}
+
+.lang a:hover {
+  opacity: 1;
 }
 
 @media only screen and (max-width: 920px) {
+  #install {
+    width: 90% !important;
+  }
 
-    #install {
-        width: 90% !important;
-    }
+  .content {
+    width: 90% !important;
+  }
 
-    .content {
-        width: 90% !important;
-    }
+  #search-info {
+    margin-bottom: 5px;
+  }
 
+  #popup {
+    text-align: center;
+  }
 
-    #search-info {
-        margin-bottom: 5px;
-    }
+  #popup img {
+    float: none;
+    width: 100%;
+    max-width: max-content;
+  }
 
-    #popup {
-        text-align: center;
-    }
+  .auto-liker-info {
+    width: 100%;
+  }
 
-    #popup img {
-        float: none;
-        width: 100%;
-        max-width: max-content;
-    }
+  #configurationImg img {
+    width: 96% !important;
+    padding: 2%;
+  }
 
-    .auto-liker-info {
-        width: 100%;
-    }
+  #supportHead {
+    width: 100%;
+  }
 
-    #configurationImg img {
-        width: 96% !important;
-        padding: 2%;
-    }
+  #share {
+    width: 100%;
+    margin-top: 20px;
+  }
 
-    #supportHead {
-        width: 100%;
-    }
+  #paypal,
+  #picpay,
+  #picMensal {
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+    float: left;
+  }
 
-    #share {
-        width: 100%;
-        margin-top: 20px;
-    }
+  #howToUseVideo {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
 
-    #paypal,
-    #picpay,
-    #picMensal {
-        text-align: center;
-        width: 100%;
-        margin: 10px 0;
-        border-bottom: 1px dotted #ccc;
-        padding-bottom: 10px;
-        float: left;
-    }
+  #howToUseVideo h2 {
+    display: none;
+  }
 
-    #howToUseVideo {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%;
-        height: 0;
-    }
-
-    #howToUseVideo h2 {
-        display: none;
-    }
-
-    #howToUseVideo iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
+  #howToUseVideo iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
