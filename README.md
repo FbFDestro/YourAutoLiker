@@ -1,4 +1,4 @@
-# [Your Auto Liker](http://yourautoliker.com)
+# [Your Auto Liker](https://fbfdestro.github.io/YourAutoLiker/)
 
 
 Your Auto Liker é uma extensão de navegador que permite que os usuários reajam automaticamente aos videos que assiste no Youtube. Nunca mais esqueça de dar like ou dislike nos vídeos que assiste! Apoie seus canais favoritos curtindo automaticamente seus vídeos.
@@ -11,10 +11,10 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
 <table>
   <tr>
     <td>
-      <a href="http://yourautoliker.com"><img src="http://yourautoliker.com/files/card1.jpg" /></a>
+      <a href="https://fbfdestro.github.io/YourAutoLiker/"><img src="https://fbfdestro.github.io/YourAutoLiker/files/card1.jpg" /></a>
     </td>
       <td>
-      <a href="http://yourautoliker.com"><img src="http://yourautoliker.com/files/card2.jpg" /></a>
+      <a href="https://fbfdestro.github.io/YourAutoLiker/"><img src="https://fbfdestro.github.io/YourAutoLiker/files/card2.jpg" /></a>
     </td>
   </tr>
 </table>
@@ -81,5 +81,5 @@ De qualquer forma, você pode dar uma olhada no meu GitHub e ter acesso ao códi
 
 ## Ajude a divulgar
 
-Por fim peço para caso tenha se interessado no projeto, no código e na ideia, que compartilhe o [site da extensão](http://yourautoliker.com) e permita que outras pessoas conheçam e utilizem a ideia!
+Por fim peço para caso tenha se interessado no projeto, no código e na ideia, que compartilhe o [site da extensão](https://fbfdestro.github.io/YourAutoLiker/) e permita que outras pessoas conheçam e utilizem a ideia!
 

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /files/
 
-Sitemap: http://yourautoliker.com/sitemap.xml
+Sitemap: https://fbfdestro.github.io/YourAutoLiker/sitemap.xml

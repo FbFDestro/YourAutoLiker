@@ -23,7 +23,7 @@ class Page {
     this.name.onclick = function() {
       if (this.classList.contains('linkSite')) {
         chrome.tabs.create({
-          url: 'http://yourautoliker.com'
+          url: 'https://fbfdestro.github.io/YourAutoLiker/'
         });
       }
     };
@@ -31,7 +31,7 @@ class Page {
     this.image.onclick = function() {
       if (this.classList.contains('linkSite')) {
         chrome.tabs.create({
-          url: 'http://yourautoliker.com'
+          url: 'https://fbfdestro.github.io/YourAutoLiker/'
         });
       }
     };
@@ -41,7 +41,7 @@ class Page {
     );
     this.supportBtn.onclick = function() {
       chrome.tabs.create({
-        url: 'http://yourautoliker.com/#apoie'
+        url: 'https://fbfdestro.github.io/YourAutoLiker/#apoie'
       });
     };
 

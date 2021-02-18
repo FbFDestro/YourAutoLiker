@@ -28,13 +28,13 @@ chrome.runtime.onInstalled.addListener(function (object) {
 				'whenReactInPercent': 0.80
 			});
 			chrome.tabs.create({
-				url: 'http://yourautoliker.com/#use'
+				url: 'https://fbfdestro.github.io/YourAutoLiker/#use'
 			});
 		}
 	});
 });
 
-chrome.runtime.setUninstallURL('http://yourautoliker.com/saiba-mais#contato');
+chrome.runtime.setUninstallURL('https://fbfdestro.github.io/YourAutoLiker/saiba-mais#contato');
 
 
 var _AnalyticsCode = 'UA-134153603-1';
