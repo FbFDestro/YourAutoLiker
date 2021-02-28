@@ -10,7 +10,7 @@ if os.path.exists('../extension'):
     print('Cleaning old stuff')
 
 os.makedirs('../extension')
-copy_tree('../YourLiker', '../extension')
+copy_tree('../YourAutoLiker', '../extension')
 
 print('Copying the extension folder')
 
