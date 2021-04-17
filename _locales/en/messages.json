@@ -8,7 +8,7 @@
     "description": "The short title of the application, displayed in the web store."
   },
   "appDesc": {
-    "message": "Automatically like or dislike videos from selected channels.",
+    "message": "Automatically like or dislike videos from Youtube.",
     "description": "The description of the application, displayed in the web store."
   },
   "support": {
