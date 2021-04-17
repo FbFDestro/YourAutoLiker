@@ -1,8 +1,10 @@
 class Page {
   constructor() {
     this.buttons = document.getElementById('buttons');
+    this.likeAllBtn = document.getElementById('likeAll');
     this.alwaysLikeBtn = document.getElementById('alwaysLike');
     this.alwaysDislikeBtn = document.getElementById('alwaysDislike');
+    this.buttonsBlur = document.getElementById('buttonsBlur');
     this.name = document.getElementById('name');
     this.image = document.getElementById('logo');
     this.subscribeBtn = document.getElementById('subscribe');
@@ -97,7 +99,12 @@ class Page {
   }
 
   showLikeDislikeButtons(statusLikeDislike) {
-    console.log(statusLikeDislike.alwaysLike);
+    if(statusLikeDislike.likeAll){
+      this.showStopLikeAll();
+    }else {
+      this.showLikeAll();
+    }
+
     if (statusLikeDislike.alwaysLike) {
       this.showStopAlwaysLike();
     } else if (statusLikeDislike.alwaysDislike) {
@@ -134,6 +141,22 @@ class Page {
       'false'
     );
     this.showElement(this.alwaysDislikeBtn);
+
+  }
+
+  
+  showLikeAll(){
+    this.buttonsBlur.classList.remove('blur');
+    this.setTextAndState(
+      this.likeAllBtn,
+      chrome.i18n.getMessage('likeAllBtn'),
+      'false'
+      ); 
+  }
+
+  showStopLikeAll(){
+    this.buttonsBlur.classList.add('blur');
+    this.setTextAndState(this.likeAllBtn, chrome.i18n.getMessage('stopLikeAllBtn'), 'true')
   }
 
   showStopAlwaysLike() {
@@ -165,12 +188,25 @@ function getWhenReact(thePage) {
       'reactingIn',
       (result.whenReactInPercent * 100).toString()
     );
-    //'Reagindo em ' + result.whenReactInPercent * 100 + '% do video';
     thePage.showElement(thePage.reactingInfo);
   });
 }
 
 function addButtonsOnClickEvent(thePage) {
+  thePage.likeAllBtn.onclick = function() {
+    if(thePage.likeAllBtn.getAttribute('alreadySubscribed') == 'false'){
+      console.log('startLikeAll');
+      sendMessage('startLikeAll');
+      thePage.showStopLikeAll()
+      trackEvent(thePage.name.textContent, 'startLikeAll');
+    }else {
+      console.log('stopLikeAll');
+      sendMessage('stopLikeAll');
+      thePage.showLikeAll();
+      trackEvent(thePage.name.textContent, 'startLikeAll');
+    }
+  }
+
   thePage.alwaysLikeBtn.onclick = function() {
     if (thePage.alwaysLikeBtn.getAttribute('alreadySubscribed') == 'false') {
       // start always like
@@ -235,6 +271,7 @@ function reciveMessage(message, sender, sendResponse) {
     if (message.type == 'stopLoading') {
       page.hideElement(page.loadingIcon);
     } else if (message.type == 'hasInfo') {
+      console.log(message)
       page.hideElement(page.supportBtn);
       page.hideElement(page.loadingIcon);
       page.showElement(page.divideLine);
@@ -285,6 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'support',
     'subscribe',
     'refresh',
+    'likeAll',
     'alwaysLike',
     'alwaysDislike',
     'configureExtensionBtn'

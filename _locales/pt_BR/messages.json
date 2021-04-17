@@ -17,6 +17,12 @@
   "subscribed": {
     "message": "Inscrito"
   },
+  "likeAllBtn": {
+    "message": "Gostar de todos os vídeos"
+  },
+  "stopLikeAllBtn": {
+    "message": "Parar de gostar de todos os vídeos"
+  },
   "alwaysLikeBtn": {
     "message": "Sempre gostar desse canal"
   },

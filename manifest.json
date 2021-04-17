@@ -4,11 +4,14 @@
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*", "https://fbfdestro.github.io/YourAutoLiker/*"],
+      "matches": [
+        "*://*.youtube.com/*",
+        "https://fbfdestro.github.io/YourAutoLiker/*"
+      ],
       "js": ["content.js"],
       "run_at": "document_end"
     }

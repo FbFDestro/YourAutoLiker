@@ -13,6 +13,7 @@ class Page {
     this.loadedLists = false;
     this.likeSet = new Set(); // set of channels that the videos should be liked
     this.dislikeSet = new Set(); // set of channels that the videos should be disliked
+    this.likeAll = false;
   }
 
   clear() {
@@ -71,6 +72,10 @@ function getMessage(message, sender, sendResponse) {
       }
       reactOnTypeOfPage();
     }
+  }else if(message == 'startLikeAll'){
+    startLikeAll()
+  } else if(message == 'stopLikeAll'){
+    stopLikeAll()
   } else if (message == 'startAlwaysLike') {
     startAlwaysLike();
   } else if (message == 'stopAlwaysLike') {
@@ -106,6 +111,7 @@ function sendMessageWithInfo() {
       pageType: page.typeOfPage
     },
     statusLikeDislike: {
+      likeAll: page.likeAll,
       alwaysLike: page.likeSet.has(page.channelInfo.name),
       alwaysDislike: page.dislikeSet.has(page.channelInfo.name)
     }
@@ -206,9 +212,11 @@ function loadLists(getElements, wait) {
     chrome.storage.sync.get(null, result => {
       if (result.likeList !== undefined) page.likeSet = new Set(result.likeList);
       if (result.dislikeList !== undefined) page.dislikeSet = new Set(result.dislikeList);
+      page.likeAll = result.likeAll
 
       console.log('Lista de likes: ' + result.likeList);
       console.log('Lista de dislikes: ' + result.dislikeList);
+      console.log('Like All: ' + result.likeAll);
 
       page.loadedLists = true;
       setTimeout(getElements, timeToWait); // waiting is needed for the elements loading
@@ -230,9 +238,7 @@ function getElementsOfVideo() {
     // may be needed to use others selectors in others versions of Youtube
     let name = document.querySelector('#upload-info > #channel-name').innerText.trim();
     let image = document.querySelector('.ytd-video-owner-renderer > img').src;
-    let subscribeBtn = document.querySelector(
-      '#subscribe-button.ytd-video-secondary-info-renderer > ytd-subscribe-button-renderer > paper-button'
-    );
+    let subscribeBtn = document.querySelector("#subscribe-button > ytd-subscribe-button-renderer > tp-yt-paper-button")
 
     if (subscribeBtn === null) {
       // in case of not being logged
@@ -296,7 +302,7 @@ function doLikeOrDislike() {
       console.log('O video ja recebeu um like ou dislike!\n');
     } else if (
       page.channelInfo !== undefined &&
-      page.likeSet.has(page.channelInfo.name)
+      page.likeSet.has(page.channelInfo.name) || page.likeAll
     ) {
       likeBtn.click();
       trackEventSend('like');
@@ -426,3 +432,29 @@ function saveDislikeSetChanges() {
     }
   );
 }
+
+function startLikeAll() {
+  page.likeAll = true;
+  chrome.storage.sync.set(
+    {
+      likeAll: page.likeAll
+    },
+    function() {
+      console.log('Like all: ' + page.likeAll);
+      addEventListenerTimeUpdate();
+    }
+  );
+}
+function stopLikeAll() {
+  page.likeAll = false;
+  chrome.storage.sync.set(
+    {
+      likeAll: page.likeAll
+    },
+    function() {
+      console.log('Stopped linking all: ' + page.likeAll);
+      addEventListenerTimeUpdate();
+    }
+  );
+}
+

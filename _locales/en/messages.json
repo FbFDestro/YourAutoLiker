@@ -23,6 +23,14 @@
     "message": "Subscribed",
     "description": "Subscribed link on popup"
   },
+  "likeAllBtn": {
+    "message": "Like all the videos I watch",
+    "description": "Start to like all the videos someone watches"
+  },
+  "stopLikeAllBtn": {
+    "message": "Stop liking all the videos I watch",
+    "description": "Stop to like all the videos someone watches"
+  },
   "alwaysLikeBtn": {
     "message": "Always like this channel",
     "description": "Always like this channel button on popup"

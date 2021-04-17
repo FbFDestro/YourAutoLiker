@@ -21,7 +21,7 @@ function getMessage(message, sender, sendResponse) {
 }
 
 chrome.runtime.onInstalled.addListener(function (object) {
-	chrome.storage.sync.get(['whenReactInPercent'], function (result) {
+	chrome.storage.sync.get(['whenReactInPercent', 'likeAll'], function (result) {
 		// checks if it's the first time the extension is running
 		if (result.whenReactInPercent == undefined) {
 			chrome.storage.sync.set({
@@ -30,6 +30,11 @@ chrome.runtime.onInstalled.addListener(function (object) {
 			chrome.tabs.create({
 				url: 'https://fbfdestro.github.io/YourAutoLiker/#use'
 			});
+		}
+		if(result.likeAll == undefined){
+			chrome.storage.sync.set({
+				'likeAll': false
+			})
 		}
 	});
 });
