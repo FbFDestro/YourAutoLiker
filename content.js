@@ -289,10 +289,10 @@ function onVideoTimeUpdate(video, whenReact) {
 function doLikeOrDislike() {
   if (page.typeOfPage == '/watch') {
     let likeBtn = document.querySelector(
-      '#top-level-buttons > ytd-toggle-button-renderer:nth-child(1) > a > #button'
+      '#top-level-buttons-computed > ytd-toggle-button-renderer:nth-child(1) > a > #button'
     );
     let dislikeBtn = document.querySelector(
-      '#top-level-buttons > ytd-toggle-button-renderer:nth-child(2) > a > #button'
+      '#top-level-buttons-computed > ytd-toggle-button-renderer:nth-child(2) > a > #button'
     );
 
     if (
