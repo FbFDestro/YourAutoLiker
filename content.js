@@ -238,7 +238,8 @@ function getElementsOfVideo() {
     // may be needed to use others selectors in others versions of Youtube
     let name = document.querySelector('#upload-info > #channel-name').innerText.trim();
     let image = document.querySelector('.ytd-video-owner-renderer > img').src;
-    let subscribeBtn = document.querySelector("#subscribe-button > ytd-subscribe-button-renderer > tp-yt-paper-button")
+    // let subscribeBtn = document.querySelector("#subscribe-button > ytd-subscribe-button-renderer > tp-yt-paper-button")
+    let subscribeBtn = document.querySelector("#notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button > yt-touch-feedback-shape > div")
 
     if (subscribeBtn === null) {
       // in case of not being logged
@@ -288,12 +289,8 @@ function onVideoTimeUpdate(video, whenReact) {
 
 function doLikeOrDislike() {
   if (page.typeOfPage == '/watch') {
-    let likeBtn = document.querySelector(
-      '#top-level-buttons > ytd-toggle-button-renderer:nth-child(1) > a > #button'
-    );
-    let dislikeBtn = document.querySelector(
-      '#top-level-buttons > ytd-toggle-button-renderer:nth-child(2) > a > #button'
-    );
+    let likeBtn = document.querySelector("#segmented-like-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div");
+    let dislikeBtn = document.querySelector("#segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div")
 
     if (
       likeBtn.classList.contains('style-default-active') ||
