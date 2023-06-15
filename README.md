@@ -23,6 +23,8 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
 
 
 ## Menu
+[Instalação](#instalação)
+
 [Sobre a extensão](#sobre-a-extensão)
 
 [Historia da extensão](#historia-da-extensão)
@@ -32,6 +34,14 @@ Your Auto Liker é uma extensão de navegador que permite que os usuários reaja
 [O Código](#o-codigo)
 
 
+## Instalação
+Infelizmente, o Chrome removeu esta extensão da loja web por violar os termos de serviço do YouTube (especificamente a parte que trata da geração de medições imprecisas do engajamento do usuário). Ainda é possível carregar a extensão localmente seguindo estes passos. Faça isso apenas para extensões nas quais você confia.
+
+1. Faça o download da versão mais recente: https://github.com/FbFDestro/YourAutoLiker/archive/refs/heads/master.zip
+1. Descompacte o arquivo master.zip e coloque-o em algum lugar onde não seja excluído acidentalmente.
+1. Abra a página de extensões no Chrome (no canto superior direito, clique no ícone <img width="18" height="18" src="https://lh3.googleusercontent.com/5nlvcUtFevZLAkSJALBl5Fa8thP_-mGFnUngJLuAFzt0jws-Lr09I9mIfawW4vKiT6k=w36-h36" alt="puzzle piece"> e depois em "Gerenciar Extensões" (na parte inferior do pop-up).
+1. Ative o Modo de Desenvolvedor (no canto superior direito).
+1. Clique em "Carregar sem compactação" e selecione a pasta descompactada "YourAutoLiker-master", a que tem o arquivo "manifest.json" dentro.
 
 ## Sobre a extensão
 
@@ -72,6 +82,7 @@ Minha história com tecnologia começou desde pequeno (10 anos de idade), quando
 
 O que começou com um joguinho, evoluiu para um antigo blog criado com o foco em tecnologia, que desencadeou meu interesse em cursar um curso técnico em informática que confirmou o meu interesse em computação e me trouxe ao presente em que curso Ciências de Computação na Universidade de São Paulo e desenvolvi uma extensão para dar likes automáticos no Youtube e eu espero que goste!
 
+Em 2023 a extensão foi atualizada por Rafael Lain (@tuxrafa), devido a extensão ter sido removida do Chrome Store e alterações no funcionamento do Youtube.
 
 ## O Código
 
